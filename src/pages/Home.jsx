@@ -1,0 +1,268 @@
+import logo from '../assets/Logo.png'
+import heroImg from '../assets/9.jpg'
+import bgPattern1 from '../assets/bg-pattern.png'
+import img5 from '../assets/5.jpg'
+import img4 from '../assets/4.jpg'
+import img7 from '../assets/7.jpg'
+import img8 from '../assets/8.jpg'
+import loca from '../assets/loca.webp'
+import Footer from '../Comps/Footer'
+import ThreeImagesBack from '../Comps/ThreeImagesBack'
+import ActivityCard from '../Comps/ActivityCard'
+import Clouds from '../Comps/Clouds'
+import { Link } from 'react-router-dom'
+function Home() {
+    return (
+        <>
+            <main id="main" className="main">
+                {/*HERO SECTION*/}
+                <div id='hero' className="d-flex justify-content-center align-items-center"
+                    style={{
+                        height: 'calc(100vh - 60px)',
+                        backgroundImage: `url(${heroImg})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                    }}>
+
+                    <div className='text-center cormorant-garamond text-light'>
+                        <h5>TOUBACOUTA</h5>
+                        <h1 className='fw-bold '>EVASION</h1>
+                        <h2>COMPLEXE TOURISTIQUE</h2>
+                    </div>
+                </div>
+
+                {/*Seconde SECTION*/}
+                <div className='bg-white py-4'>
+                    <div className='container '>
+                        <div className='text-center d-flex align-items-center justify-content-center flex-column'>
+                            <h3 className='playfair-display'>ToubaCouta Evasion – Nature & Élégance au cœur du Delta</h3>
+                            <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
+                            <p className='poppins'>Véritable écrin de calme et d’authenticité, ToubaCouta Evasion vous invite à vivre une expérience unique, intime et immersive, au cœur du majestueux Delta du Saloum. Entre bolongs scintillants, forêts paisibles et rencontres inoubliables avec la nature, chaque instant ici est une reconnexion avec l’essentiel.</p>
+                        </div>
+                    </div>
+                </div>
+
+                {/*3e SECTION avec image*/}
+                <div>
+                    <div
+                        style={{
+                            backgroundImage: `url(${img5})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            backgroundRepeat: 'no-repeat',
+                            minHeight: "600px",
+                            position: 'relative', // pour placer les nuages
+                        }}
+                    >
+                        {/* Nuages en haut */}
+                        <Clouds />
+
+                        {/* Nuages en bas */}
+                        <Clouds rotate={'180deg'} pos='bottom' />
+                    </div>
+                </div>
+
+
+                {/*4e SECTION localisation*/}
+                <div
+                    className="bg-secondary30 py-5 position-relative"
+                    
+                >
+                    <div
+                        style={{
+                            position: 'absolute',
+                            height: '100%',
+                            width: '100%',
+                            inset: 0,
+                            backgroundImage: `url(${bgPattern1})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            opacity: .1, // Adjust opacity (0.0 to 1.0)
+                            zIndex: 1, // Places it behind the content
+                        }}
+                    >
+                        </div>
+
+                    <div className="container">
+                        <div className='d-flex align-items-center justify-content-between row'>
+                            <div className='col-lg-6 col-md-6 col-12'>
+                                <img src={loca} className='img-fluid' alt="" style={{zIndex: 1, position: 'relative'}} />
+                            </div>
+                            <div className='col-lg-6 col-md-6 col-12'>
+                                <div className='d-flex flex-column align-items-center justify-content-center text-center'>
+                                    <h4 className='playfair-display'>Notre Localisation</h4>
+                                    <hr className='border-2 border-main opacity-100 ' style={{ width: "20%", maxWidth: "250px" }} />
+                                    <p className='poppins'>
+                                        Situé au cœur d’une réserve classée par l’UNESCO, ToubaCouta est une destination unique, où nature sauvage, patrimoine sérère et hospitalité authentique se rencontrent. Entre terre et eau, le village est un point de départ idéal pour explorer les bolongs, observer une faune exceptionnelle, ou simplement se reconnecter à l’essentiel.
+                                        Le campement est situé à environ 3h30 de route depuis Dakar (transfert privé possible). Accès facile depuis Dakar, Banjul ou Saly.
+                                    </p>
+                                    <div className='d-flex align-items-center justify-content-center gap-2'>
+                                        <button className='btn btn-main text-light rounded-0 px-4 py-2'>
+                                            <span className='cormorant-garamond fs-4'>
+                                                View Offer
+                                            </span>
+                                        </button>
+                                        <button className='btn btn-main text-light rounded-0 px-4 py-2'>
+                                            <span className='cormorant-garamond fs-4'>
+                                                View Offer
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Section découvrez */}
+                <div className="bg-white py-4">
+                    <div className="container">
+                        <div className='d-flex flex-column align-items-center justify-content-center text-center'>
+                            <h3 className='playfair-display'>Découvrez</h3>
+                            <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
+                            <div className='row'>
+                                <ActivityCard content={"Pêche"} img={heroImg} />
+                                <ActivityCard content={"Camping"} img={img8} />
+                                <ActivityCard content={"Pêche"} img={heroImg} />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Section Offres spéciales exclusives */}
+                <div className='bg-white py-4'>
+                    <div className='container'>
+                        <div className="d-flex flex-column align-items-center justify-content-center text-center">
+                            <h3 className='playfair-display text-center'>Offres spéciales exclusives</h3>
+                            <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
+                            <p className='text-center'>
+                                Nous proposons plusieurs forfaits luxueux, pour des séjours exclusifs ou en hôtel-boutique.
+                                Choisissez votre forfait pour une expérience intime, chaleureuse et luxueuse.
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <ThreeImagesBack img1={img8} img2={img7} img3={img4}>
+                        <Clouds />
+                        <Clouds rotate={'180deg'} pos='bottom' />
+                    </ThreeImagesBack>
+
+
+                    <div className='container-fluid mt-4'>
+                        <div className="text-center">
+
+                            <div className='row'>
+                                <div className="col-lg-4 playfair-display">
+                                    <div className='align-items-center d-flex flex-column'>
+                                        <h5 className='text-main'>Camping</h5>
+                                        <div className='d-flex justify-content-center align-content-center gap-2'>
+                                            <h6 className=''>
+                                                From
+                                                $2,100
+                                            </h6>
+                                            <button className='btn btn-main text-light rounded-0 px-4 py-2'>
+                                                <span className='cormorant-garamond fs-5'>
+                                                    View Offer
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-lg-4 playfair-display">
+                                    <div className='align-items-center d-flex flex-column'>
+                                        <h5 className='text-main'>Camping</h5>
+                                        <div className='d-flex justify-content-center align-content-center gap-2'>
+                                            <h6 className=''>
+                                                From
+                                                $2,100
+                                            </h6>
+                                            <button className='btn btn-main text-light rounded-0 px-4 py-2'>
+                                                <span className='cormorant-garamond fs-5'>
+                                                    View Offer
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-lg-4 playfair-display">
+                                    <div className='align-items-center d-flex flex-column'>
+                                        <h5 className='text-main'>Camping</h5>
+                                        <div className='d-flex justify-content-center align-content-center gap-2'>
+                                            <h6 className=''>
+                                                From
+                                                $2,100
+                                            </h6>
+                                            <button className='btn btn-main text-light rounded-0 px-4 py-2'>
+                                                <span className='cormorant-garamond fs-5'>
+                                                    View Offer
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/*Award*/}
+                <div className='bg-white py-4'>
+                    <div className='container'>
+                        <div className="d-flex flex-column align-items-center justify-content-center text-center">
+                            <h3 className='playfair-display text-center'>Awards & Press</h3>
+                            <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
+                            <p className='text-center'>
+                                Véritable havre de paix et d'harmonie, nous vous accueillons pour une expérience de luxe intime et personnalisée à Zanzibar,
+                                sur la spectaculaire plage de sable blanc de Paje.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {/*Last section*/}
+                <div className='bg-secondary30 py-5 position-relative'>
+                    {/* Nuages en haut */}
+                    <Clouds />
+
+                    {/* Nuages en bas */}
+                    <Clouds rotate={'180deg'} pos='bottom' />
+
+                    <div className='container'>
+                        <div className='row d-flex align-items-center'>
+                            <div className='col-lg-6 col-12'>
+                                <img src={loca} alt="" className='img-fluid' />
+                            </div>
+                            <div className='col-lg-6 col-12'>
+                                <div className='d-flex flex-column align-items-center justify-content-center text-center'>
+                                    <h4 className='playfair-display text-center'>Là où la nature authentique rencontre l’âme du Sénégal</h4>
+                                    <hr className='border-2 border-main opacity-100 ' style={{ width: "20%", maxWidth: "250px" }} />
+                                    <p>
+                                        ToubaCouta Evasion est un refuge éco-responsable, enraciné au cœur du Delta du Saloum, l’une des régions les plus spectaculaires et préservées d’Afrique de l’Ouest. Entre mangroves, bolongs scintillants et baobabs centenaires, notre évasion boutique vous propose une expérience intime, mêlant confort, simplicité et connexion profonde à la nature.
+                                    </p>
+                                    <p>
+                                        Avec un nombre limité d’écolodges et d’emplacements de camping intégrés avec soin dans l’environnement, ToubaCouta Evasion vous invite à vivre la véritable intimité, l’authenticité et l’art de ralentir.
+                                        Ici, c’est la nature qui donne le rythme.
+                                    </p>
+                                    <p>Profitez de balades en pirogue dans les bolongs, de couchers de soleil inoubliables, d’excursions de pêche traditionnelle et d’une cuisine locale inspirée et généreuse. Chaque moment est une invitation à se recentrer et à respirer.</p>
+                                    <p>
+                                        Fiers de faire partie d’une nouvelle génération de tourisme durable au Sénégal, nous concevons chaque détail avec attention : hébergements à faible impact, guides locaux passionnés, respect des traditions et valorisation du territoire.
+                                        Que vous recherchiez l’aventure, la sérénité, ou simplement un retour à l’essentiel, ToubaCouta Evasion vous ouvre les portes d’un monde où nature, partage et présence sont au cœur de tout.
+                                    </p>
+                                    <button className='btn btn-main text-light rounded-0 px-4 py-2'>
+                                        <span className='cormorant-garamond fs-5'>
+                                            Notre Histoire
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <Footer />
+            </main>
+        </>
+    )
+}
+export default Home

@@ -1,0 +1,19 @@
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+
+// 🎨 Ajout de tes couleurs perso
+$custom-colors: (
+  "main": #D4AF7F,
+  "main50": #E9D6BE,
+  "secondary": #F5CEC7,
+  "secondary30": #FCF1EF,
+  'tertiary1': #4B6A6A,
+  "tertiary2": #2A3D45,
+  "neutral1": #F7F6F2,
+  "neutral2": #A4DADC,
+);
+
+// Fusion avec la map existante
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
