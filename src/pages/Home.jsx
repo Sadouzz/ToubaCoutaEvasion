@@ -77,7 +77,6 @@ function Home() {
                             inset: 0,
                             backgroundImage: `url(${bgPattern1})`,
                             backgroundSize: 'cover',
-                            backgroundPosition: 'center',
                             opacity: .1, // Adjust opacity (0.0 to 1.0)
                             zIndex: 1, // Places it behind the content
                         }}

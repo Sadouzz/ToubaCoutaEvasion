@@ -28,11 +28,34 @@ function Footer() {
                             <i className="bi bi-caret-right-fill"></i>
                         </div>
                     </div>
-                    <div className='text-black d-flex align-items-center justify-content-center flex-column'>
+                    <div className='text-black d-flex align-items-center justify-content-center flex-column mb-5'>
                         <button className='border border-1 border-main text-tertiary cormorant-garamond text-uppercase fs-5'>
                             VOIR TOUS LES témoignages
                         </button>
+                    </div>
+                    <div className='row poppins'>
+                        <div className='col-lg-4 d-flex align-items-center flex-column'>
+                            <h5>Contactez Nous</h5>
+                            <p>+221784361818</p>
+                        </div>
+                        <div className='col-lg-4 d-flex align-items-center flex-column'>
+                            <h5>Liens Utiles</h5>
+                            <p>+221784361818</p>
+                            <p>+221784361818</p>
+                            <p>+221784361818</p>
+                        </div>
+                        <div className='col-lg-4 d-flex align-items-center flex-column'>
+                            <h5>Réseaux Sociaux</h5>
+                            <p>+221784361818</p>
+                        </div>
+                    </div>
+                </div>
 
+                <hr className='text-main border-2 opacity-75' />
+                <div className="container">
+                    <div className='d-flex flex-column align-items-center justify-content-center text-center'>
+                        <h4 className='playfair-display'>Partenaires & Affiliations</h4>
+                        
                     </div>
                 </div>
             </div>

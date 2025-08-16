@@ -29,10 +29,10 @@
 }
 
 .header-nav {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
     /* garde les majuscules */
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .header-nav .nav-link {
@@ -48,6 +48,18 @@
     transition: all 0.5s;
     z-index: 997;
     height: 60px;
+    box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
+    background-color: #fff;
+    padding-left: 20px;
+    /* Toggle Sidebar Button */
+    /* Search Bar */
+}
+
+.header-activities {
+    top: 60px;
+    transition: all 0.5s;
+    z-index: 997;
+    height: 40px;
     box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
     background-color: #fff;
     padding-left: 20px;
@@ -222,20 +234,20 @@
     /* zoom */
 }
 
-.menu-card{
+.menu-card, .photo-card{
     transition: transform 0.5s ease;
 }
 
-.menu-card img {
+.menu-card img, .photo-card img {
     transition: transform 0.5s ease;
 }
-.menu-card:hover
+.menu-card:hover, .photo-card:hover
 {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
-.menu-card:hover img {
-    transform: scale(1.1);
+.menu-card:hover img, .photo-card:hover img {
+    transform: scale(1.05);
     /* zoom */
 }
 

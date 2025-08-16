@@ -5,6 +5,8 @@ import HeaderBootstrap from './Comps/HeaderBootstrap';
 import SidebarBootstrap from './Comps/SidebarBootstrap';
 import Home from './pages/Home';
 import Restaurant from './pages/Restaurant';
+import Peche from './pages/Peche';
+import Camping from './pages/Camping';
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -17,6 +19,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/restaurant" element={<Restaurant />} />
+            <Route path="/activites" element={<Peche />} />
+            <Route path="/activites/peche" element={<Peche />} />
+            <Route path="/activites/camping" element={<Camping />} />
           </Routes>
         </Router>
       </div>
