@@ -89,6 +89,7 @@ function Restaurant() {
                             <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
                             <div className='row'>
                                 <MenuCard title={"Huîtres Gratins"} img={heroImg} price='7500'/>
+                                <MenuCard title={"Huîtres Gratins"} img={heroImg} price='7500'/>
                                 <MenuCard title={"Pêche"} img={heroImg} price='9000'/>
                                 <MenuCard title={"Pêche"} img={heroImg} price='9000'/>
                             </div>

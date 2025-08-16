@@ -125,6 +125,7 @@ function Home() {
                                 <ActivityCard content={"Pêche"} img={heroImg} />
                                 <ActivityCard content={"Camping"} img={img8} />
                                 <ActivityCard content={"Pêche"} img={heroImg} />
+                                <ActivityCard content={"Pêche"} img={heroImg} />
                             </div>
                         </div>
                     </div>
