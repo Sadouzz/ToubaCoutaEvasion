@@ -7,7 +7,7 @@ function PhotoCard({ title, content, img }) {
             <div className="card text-bg-dark rounded-0 border-0 photo-card shadow-lg overflow-hidden">
                 <img
                     src={img}
-                    className="card-img-top position-relative z-0"
+                    className="card-img-top position-relative z-0 rounded-0"
                     alt={content}
                     style={{
                         height: '350px',       // Hauteur fixe pour toutes les cartes
@@ -19,13 +19,13 @@ function PhotoCard({ title, content, img }) {
                     className="card-body bg-light d-flex flex-column justify-content-center align-items-center px-5 py-2 position-relative z-1"
                 >
                     {/* <img src={logo} alt="" style={{ maxWidth: '50px' }} /> */}
-                    <h3 className='cormorant-garamond text-dark m-0'>{title}</h3>
+                    <h4 className='cormorant-garamond text-dark m-0'>{title}</h4>
                     <hr className='border-2 border-main opacity-100 m-1' style={{ width: "10%", maxWidth: "150px" }} />
-                    <p
+                    <small
                         className="card-title text-dark text-center poppins"
                     >
                         {content}
-                    </p>
+                    </small>
                 </div>
             </div>
         </div>

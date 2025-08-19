@@ -1,8 +1,13 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from '../assets/Logo.png';
 
 function HeaderBootstrap({ toggleSidebar }) {
+    const location = useLocation();
+
+    // Vérifie si on est dans /activites ou une sous-page
+    const isActivitesPage = location.pathname.startsWith("/activites");
     return (
+
         <>
             <header className="header fixed-top d-flex align-items-center bg-white shadow-sm py-2 px-3 w-100">
                 <div className="d-flex align-items-center justify-content-between w-100">
@@ -56,7 +61,8 @@ function HeaderBootstrap({ toggleSidebar }) {
                     </nav>
                 </div>
             </header>
-            <header className="header header-activities position-fixed d-flex align-items-center justify-content-center bg-main text-light shadow-sm py-2 px-3 w-100">
+
+            {false && isActivitesPage && (<header className="header header-activities position-fixed d-flex align-items-center justify-content-center bg-main text-light shadow-sm py-2 px-3 w-100">
                 <nav className="header-nav ">
                     <ul className="d-flex align-items-center justify-content-center list-unstyled mb-0 text-uppercase" >
 
@@ -72,13 +78,13 @@ function HeaderBootstrap({ toggleSidebar }) {
                         </li>
 
                         <li className="nav-item ms-4">
-                            <NavLink to="/activities/balades-transports" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`}>
+                            <NavLink to="/activites/balades-transports" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`}>
                                 <span>Balades & Transports</span>
                             </NavLink>
                         </li>
                     </ul>
                 </nav>
-            </header>
+            </header>)}
         </>
     );
 }

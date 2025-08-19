@@ -16,6 +16,14 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.section-titled{
+    max-width: 800px;
+}
+.section-titled h3{
+    width: 70%;
+    margin-bottom: 0;
+}
+
 .cormorant-garamond{
     font-family: 'Cormorant Garamond', serif;
 }
@@ -55,14 +63,8 @@
     /* Search Bar */
 }
 
-.header-activities {
-    top: 60px;
-    transition: all 0.5s;
-    z-index: 997;
-    height: 40px;
-    box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
-    background-color: #fff;
-    padding-left: 20px;
+.second-header li{
+    font-family: 'Playfair Display', serif;
     /* Toggle Sidebar Button */
     /* Search Bar */
 }

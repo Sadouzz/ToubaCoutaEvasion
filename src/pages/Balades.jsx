@@ -1,23 +1,25 @@
 import logo from '../assets/Logo.png'
 import heroImg from '../assets/9.jpg'
-import photo1 from '../assets/img/Peche/peche1.jpg'
-import photo2 from '../assets/img/Peche/peche2.jpg'
-import photo3 from '../assets/img/Peche/peche3.jpg'
-import photo4 from '../assets/img/Peche/peche4.jpg'
-import photo5 from '../assets/img/Peche/peche5.jpg'
-import photo6 from '../assets/img/Peche/peche6.jpg'
-import photo7 from '../assets/img/Peche/peche7.jpg'
-import photo8 from '../assets/img/Peche/peche8.jpg'
-import photo9 from '../assets/img/Peche/peche9.jpg'
-import photo10 from '../assets/img/Peche/peche10.jpg'
-import photo11 from '../assets/img/Peche/peche11.jpg'
-import photo12 from '../assets/img/Peche/peche12.jpg'
-import photo13 from '../assets/img/Peche/peche13.jpg'
-import photo14 from '../assets/img/Peche/peche14.jpg'
-import photo15 from '../assets/img/Peche/peche15.jpg'
-import photo16 from '../assets/img/Peche/peche16.jpg'
+import photo1 from '../assets/img/Balades/balade1.jpg'
+import photo2 from '../assets/img/Balades/balade2.jpg'
+import photo3 from '../assets/img/Balades/balade3.jpg'
+import photo4 from '../assets/img/Balades/balade4.jpg'
+import photo5 from '../assets/img/Balades/balade5.jpg'
+import photo6 from '../assets/img/Balades/balade6.jpg'
+import photo7 from '../assets/img/Balades/balade7.jpg'
+import photo8 from '../assets/img/Balades/balade8.jpg'
+import photo9 from '../assets/img/Balades/balade9.jpg'
+import photo10 from '../assets/img/Balades/balade10.jpg'
+import photo11 from '../assets/img/Balades/balade11.jpg'
+import photo12 from '../assets/img/Balades/balade12.jpg'
+import photo13 from '../assets/img/Balades/balade13.jpg'
+import photo14 from '../assets/img/Balades/balade14.jpg'
+import photo15 from '../assets/img/Balades/balade15.jpg'
+import photo16 from '../assets/img/Balades/balade16.jpg'
+import photo17 from '../assets/img/Balades/balade17.jpg'
+import photo18 from '../assets/img/Balades/balade18.jpg'
+import photo19 from '../assets/img/Balades/balade19.jpg'
 import img5 from '../assets/5.jpg'
-import img7 from '../assets/7.jpg'
 import bgPattern1 from '../assets/bg-pattern.png'
 import loca from '../assets/loca.webp'
 import Footer from '../Comps/Footer'
@@ -26,77 +28,77 @@ import PhotoCard from '../Comps/PhotoCard'
 import Clouds from '../Comps/Clouds'
 import { Link, NavLink } from 'react-router-dom'
 import { useEffect, useRef, useState } from "react";
-function Peche() {
+export default function Balades() {
     const [isSticky, setIsSticky] = useState(false);
-    const sentinelRef = useRef(null);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                // Quand le sentinel sort de la vue (vers le haut) → header devient sticky
-                setIsSticky(!entry.isIntersecting);
-            },
-            {
-                root: null,
-                threshold: 0,
-                rootMargin: "-60px 0px 0px 0px", // déclenche 60px avant le haut
+        const sentinelRef = useRef(null);
+    
+        useEffect(() => {
+            const observer = new IntersectionObserver(
+                ([entry]) => {
+                    // Quand le sentinel sort de la vue (vers le haut) → header devient sticky
+                    setIsSticky(!entry.isIntersecting);
+                },
+                {
+                    root: null,
+                    threshold: 0,
+                    rootMargin: "-60px 0px 0px 0px", // déclenche 60px avant le haut
+                }
+            );
+    
+            if (sentinelRef.current) {
+                observer.observe(sentinelRef.current);
             }
-        );
-
-        if (sentinelRef.current) {
-            observer.observe(sentinelRef.current);
-        }
-
-        return () => {
-            if (sentinelRef.current) observer.unobserve(sentinelRef.current);
-        };
-    }, []);
-    return (
-        <>
-            <main id="main" className="main">
-                {/*HERO SECTION*/}
-                <div id='hero' className=""
-                    style={{
-                        height: 'calc(100vh - 200px)',
-                        backgroundImage: `url(${img7})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        backgroundRepeat: 'no-repeat',
-                        position: 'relative'
-                    }}>
-                    {/* sentinel invisible placé en bas du hero */}
-                    <div ref={sentinelRef} style={{ position: "absolute", bottom: 0, height: 1, width: "100%" }} />
-                    <header className="header second-header  align-content-center bg-main text-light shadow-sm py-2 w-100" 
-                    style={{
-                        position: isSticky ? 'fixed' : 'absolute',
-                        bottom: isSticky ? "auto" : 0,
-                        top: isSticky ? "60px" : "auto",
-                        zIndex: 1000,
-                    }}>
-                        <nav className="header-nav ">
-                            <ul className="d-flex align-items-center justify-content-center list-unstyled mb-0 text-uppercase" >
-
-                                <li className="nav-item">
-                                    <NavLink to="/activites/peche" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`} >
-                                        <span>Pêche</span>
-                                    </NavLink>
-                                </li>
-                                <li className="nav-item ms-4">
-                                    <NavLink to="/activites/camping" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`}>
-                                        <span>Camping</span>
-                                    </NavLink>
-                                </li>
-
-                                <li className="nav-item ms-4">
-                                    <NavLink to="/activites/balades-transports" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`}>
-                                        <span>Balades & Transports</span>
-                                    </NavLink>
-                                </li>
-                            </ul>
-                        </nav>
-                    </header>
-
-                </div>
+    
+            return () => {
+                if (sentinelRef.current) observer.unobserve(sentinelRef.current);
+            };
+        }, []);
+        return (
+            <>
+                <main id="main" className="main">
+                    {/*HERO SECTION*/}
+                    <div id='hero' className=""
+                        style={{
+                            height: 'calc(100vh - 200px)',
+                            backgroundImage: `url(${img5})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            backgroundRepeat: 'no-repeat',
+                            position: 'relative'
+                        }}>
+                        {/* sentinel invisible placé en bas du hero */}
+                        <div ref={sentinelRef} style={{ position: "absolute", bottom: 0, height: 1, width: "100%" }} />
+                        <header  className="header second-header  align-content-center bg-main text-light shadow-sm py-2 w-100 " 
+                        style={{
+                            position: isSticky ? 'fixed' : 'absolute',
+                            bottom: isSticky ? "auto" : 0,
+                            top: isSticky ? "60px" : "auto",
+                            zIndex: 1000,
+                        }}>
+                            <nav className="header-nav ">
+                                <ul className="d-flex align-items-center justify-content-center list-unstyled mb-0 text-uppercase" >
+    
+                                    <li className="nav-item">
+                                        <NavLink to="/activites/peche" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`} >
+                                            <span>Pêche</span>
+                                        </NavLink>
+                                    </li>
+                                    <li className="nav-item ms-4">
+                                        <NavLink to="/activites/camping" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`}>
+                                            <span>Camping</span>
+                                        </NavLink>
+                                    </li>
+    
+                                    <li className="nav-item ms-4">
+                                        <NavLink to="/activites/balades-transports" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`}>
+                                            <span>Balades & Transports</span>
+                                        </NavLink>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </header>
+    
+                    </div>
 
                 {/*Seconde SECTION*/}
                 <div className='bg-white py-4'>
@@ -104,10 +106,11 @@ function Peche() {
                         <div className='text-center d-flex align-items-center justify-content-center flex-column'>
                             <div className='section-titled d-flex flex-column align-items-center justify-content-center'>
 
-                                <h3 className='playfair-display'>Pêche</h3>
+                                <h3 className='playfair-display'>Balades & Transports</h3>
                                 <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
-                                <p className='poppins'>Avec ses eaux calmes toute l’année, ses bolongs poissonneux et ses paysages à couper le souffle, ToubaCouta est rapidement devenu l’un des meilleurs spots de pêche sportive et traditionnelle en Afrique de l’Ouest.
-                                    C’est dans cet environnement unique que nous avons créé ToubaCouta Evasion, un club de pêche haut de gamme dédié à vous offrir un service de qualité, du matériel performant et une expérience authentique.</p>
+                                <p className='poppins'>Entre pistes sauvages, sentiers de brousse et paysages à couper le souffle, ToubaCouta devient un terrain de jeu grandeur nature pour les amateurs d’aventure et de sensations fortes.
+
+                                    Que vous soyez amateur de sensations, amoureux de la nature ou curieux de découvrir le delta autrement, ToubaCouta Aventure vous ouvre la voie d'une immersion unique, entre adrénaline et découverte.</p>
                             </div>
                         </div>
                     </div>
@@ -209,8 +212,11 @@ function Peche() {
                                 <PhotoCard img={photo14} title={''} content={''} />
                                 <PhotoCard img={photo15} title={''} content={''} />
                                 <PhotoCard img={photo16} title={''} content={''} />
-                                
-                                </div>
+                                <PhotoCard img={photo17} title={''} content={''} />
+                                <PhotoCard img={photo18} title={''} content={''} />
+                                <PhotoCard img={photo19} title={''} content={''} />
+
+                            </div>
                         </div>
 
 
@@ -224,4 +230,3 @@ function Peche() {
         </>
     )
 }
-export default Peche

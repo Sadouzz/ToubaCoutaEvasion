@@ -1,5 +1,8 @@
 import logo from '../assets/Logo.png'
 import heroImg from '../assets/9.jpg'
+import photo1 from '../assets/img/Camping/camping1.jpg'
+import photo2 from '../assets/img/Camping/camping2.jpg'
+import photo3 from '../assets/img/Camping/camping3.jpg'
 import img5 from '../assets/5.jpg'
 import campingImg1 from '../assets/Camping/1.jpg'
 import campingImg2 from '../assets/Camping/2.jpg'
@@ -10,21 +13,76 @@ import Footer from '../Comps/Footer'
 import ThreeImagesBack from '../Comps/ThreeImagesBack'
 import PhotoCard from '../Comps/PhotoCard'
 import Clouds from '../Comps/Clouds'
-import { Link } from 'react-router-dom'
-function Camping() {
+import { useEffect, useRef, useState } from "react";
+import { Link, NavLink } from 'react-router-dom'
+function Camping() {const [isSticky, setIsSticky] = useState(false);
+    const sentinelRef = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                // Quand le sentinel sort de la vue (vers le haut) → header devient sticky
+                setIsSticky(!entry.isIntersecting);
+            },
+            {
+                root: null,
+                threshold: 0,
+                rootMargin: "-60px 0px 0px 0px", // déclenche 60px avant le haut
+            }
+        );
+
+        if (sentinelRef.current) {
+            observer.observe(sentinelRef.current);
+        }
+
+        return () => {
+            if (sentinelRef.current) observer.unobserve(sentinelRef.current);
+        };
+    }, []);
     return (
         <>
             <main id="main" className="main">
                 {/*HERO SECTION*/}
-                <div id='hero' className="d-flex justify-content-center align-items-center"
+                <div id='hero' className=""
                     style={{
-                        height: 'calc(100vh - 60px)',
-                        backgroundImage: `url(${campingImg2})`,
+                        height: 'calc(100vh - 200px)',
+                        backgroundImage: `url(${img5})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         backgroundRepeat: 'no-repeat',
+                        position: 'relative'
                     }}>
+                    {/* sentinel invisible placé en bas du hero */}
+                    <div ref={sentinelRef} style={{ position: "absolute", bottom: 0, height: 1, width: "100%" }} />
+                    <header className="header second-header  align-content-center bg-main text-light shadow-sm py-2 w-100" 
+                    style={{
+                        position: isSticky ? 'fixed' : 'absolute',
+                        bottom: isSticky ? "auto" : 0,
+                        top: isSticky ? "60px" : "auto",
+                        zIndex: 1000,
+                    }}>
+                        <nav className="header-nav ">
+                            <ul className="d-flex align-items-center justify-content-center list-unstyled mb-0 text-uppercase" >
 
+                                <li className="nav-item">
+                                    <NavLink to="/activites/peche" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`} >
+                                        <span>Pêche</span>
+                                    </NavLink>
+                                </li>
+                                <li className="nav-item ms-4">
+                                    <NavLink to="/activites/camping" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`}>
+                                        <span>Camping</span>
+                                    </NavLink>
+                                </li>
+
+                                <li className="nav-item ms-4">
+                                    <NavLink to="/activites/balades-transports" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`}>
+                                        <span>Balades & Transports</span>
+                                    </NavLink>
+                                </li>
+                            </ul>
+                        </nav>
+                    </header>
 
                 </div>
 
@@ -32,11 +90,13 @@ function Camping() {
                 <div className='bg-white py-4'>
                     <div className='container '>
                         <div className='text-center d-flex align-items-center justify-content-center flex-column'>
-                            <h3 className='playfair-display'>Camping</h3>
-                            <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
-                            <p className='poppins'>
-                                Avec ses forêts paisibles, ses bolongs mystérieux et ses ciels étoilés à perte de vue, ToubaCouta est rapidement devenu l’un des meilleurs endroits pour vivre une expérience de camping authentique en Afrique de l’Ouest. C’est dans ce décor naturel exceptionnel que nous avons créé ToubaCouta Evasion, un espace dédié aux amoureux de la nature, alliant confort, aventure et déconnexion totale.
-                            </p>
+                            <div className='section-titled d-flex flex-column align-items-center justify-content-center'>
+                                <h3 className='playfair-display'>Camping</h3>
+                                <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
+                                <p className='poppins'>
+                                    Avec ses forêts paisibles, ses bolongs mystérieux et ses ciels étoilés à perte de vue, ToubaCouta est rapidement devenu l’un des meilleurs endroits pour vivre une expérience de camping authentique en Afrique de l’Ouest. C’est dans ce décor naturel exceptionnel que nous avons créé ToubaCouta Evasion, un espace dédié aux amoureux de la nature, alliant confort, aventure et déconnexion totale.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -104,7 +164,6 @@ function Camping() {
                             backgroundPosition: 'center',
                             backgroundRepeat: 'no-repeat',
                             position: 'absolute', // pour placer les nuages
-                            backgroundSize: 'cover',
                             opacity: .51, // Adjust opacity (0.0 to 1.0)
                         }}
                     >
@@ -115,9 +174,9 @@ function Camping() {
                         <Clouds />
                         <div className='container py-5'>
                             <div className='row justify-content-center'>
-                                <PhotoCard img={campingImg1} title={'Retour aux sources'} content={'Pas de murs, pas de montre. Juste le souffle du vent et le chant des insectes.'} />
-                                <PhotoCard img={campingImg2} title={'Campement du jour'} content={'Monter la tente, allumer le feu, et laisser le monde tourner sans nous.'} />
-                                <PhotoCard img={campingImg8} title={'Repos sauvage'} content={'Loin des villes, plus proche de soi.'} />
+                                <PhotoCard img={photo1} title={'Retour aux sources'} content={'Pas de murs, pas de montre. Juste le souffle du vent et le chant des insectes.'} />
+                                <PhotoCard img={photo2} title={'Campement du jour'} content={'Monter la tente, allumer le feu, et laisser le monde tourner sans nous.'} />
+                                <PhotoCard img={photo3} title={'Repos sauvage'} content={'Loin des villes, plus proche de soi.'} />
 
                             </div>
                         </div>

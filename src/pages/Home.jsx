@@ -1,14 +1,18 @@
 import logo from '../assets/Logo.png'
-import heroImg from '../assets/9.jpg'
 import bgPattern1 from '../assets/bg-pattern.png'
-import img5 from '../assets/5.jpg'
-import img4 from '../assets/4.jpg'
-import img7 from '../assets/7.jpg'
-import img8 from '../assets/8.jpg'
+import heroImg from '../assets/img/peche/peche9.jpg'
+import img1 from '../assets/img/Balades/balade2.jpg'
+import img2 from '../assets/img/Camping/camping2.jpg'
+import img3 from '../assets/img/Peche/peche9.jpg'
+import img4 from '../assets/img/Peche/peche9.jpg'
+import img5 from '../assets/img/camping/camping1.jpg'
+import img6 from '../assets/img/balades/balade11.jpg'
+import img8 from '../assets/img/peche/peche7.jpg'
 import loca from '../assets/loca.webp'
 import Footer from '../Comps/Footer'
 import ThreeImagesBack from '../Comps/ThreeImagesBack'
 import ActivityCard from '../Comps/ActivityCard'
+import ThreeImagesWithHoverChanges from '../Comps/ThreeImagesWithHoverChanges'
 import Clouds from '../Comps/Clouds'
 import { Link } from 'react-router-dom'
 function Home() {
@@ -35,6 +39,37 @@ function Home() {
                 {/*Seconde SECTION*/}
                 <div className='bg-white py-4'>
                     <div className='container '>
+                        <div className='d-flex align-items-center justify-content-center'
+                        >
+                            <div className='section-titled d-flex flex-column align-items-center text-center'>
+
+                                <h3 className="playfair-display text-center">
+                                    ToubaCouta Evasion – Nature & Élégance au cœur du Delta
+                                </h3>
+                                <hr
+                                    className="border-2 border-main opacity-100 mx-auto"
+                                    style={{ width: "10%", maxWidth: "150px" }}
+                                />
+                                <p className="poppins text-center">
+                                    Véritable écrin de calme et d’authenticité, ToubaCouta Evasion vous invite à vivre une expérience unique, intime et immersive, au cœur du majestueux Delta du Saloum. Entre bolongs scintillants, forêts paisibles et rencontres inoubliables avec la nature, chaque instant ici est une reconnexion avec l’essentiel.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/*3e SECTION avec image*/}
+                <ThreeImagesWithHoverChanges img1={img1} img2={img3} img3={img2}>
+                    <Clouds />
+
+                    {/* Nuages en bas */}
+                    <Clouds rotate={'180deg'} pos='bottom' />
+                </ThreeImagesWithHoverChanges>
+
+                {/*Seconde SECTION*/}
+                <div className='bg-white py-4'>
+                    <div className='container '>
                         <div className='text-center d-flex align-items-center justify-content-center flex-column'>
                             <h3 className='playfair-display'>ToubaCouta Evasion – Nature & Élégance au cœur du Delta</h3>
                             <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
@@ -43,31 +78,11 @@ function Home() {
                     </div>
                 </div>
 
-                {/*3e SECTION avec image*/}
-                <div>
-                    <div
-                        style={{
-                            backgroundImage: `url(${img5})`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                            backgroundRepeat: 'no-repeat',
-                            minHeight: "600px",
-                            position: 'relative', // pour placer les nuages
-                        }}
-                    >
-                        {/* Nuages en haut */}
-                        <Clouds />
-
-                        {/* Nuages en bas */}
-                        <Clouds rotate={'180deg'} pos='bottom' />
-                    </div>
-                </div>
-
 
                 {/*4e SECTION localisation*/}
                 <div
                     className="bg-secondary30 py-5 position-relative"
-                    
+
                 >
                     <div
                         style={{
@@ -78,18 +93,19 @@ function Home() {
                             backgroundImage: `url(${bgPattern1})`,
                             backgroundSize: 'cover',
                             opacity: .1, // Adjust opacity (0.0 to 1.0)
-                            zIndex: 1, // Places it behind the content
+                            zIndex: 0, // Places it behind the content
                         }}
                     >
-                        </div>
+                    </div>
 
                     <div className="container">
                         <div className='d-flex align-items-center justify-content-between row'>
                             <div className='col-lg-6 col-md-6 col-12'>
-                                <img src={loca} className='img-fluid' alt="" style={{zIndex: 1, position: 'relative'}} />
+                                <img src={loca} className='img-fluid' alt="" style={{ zIndex: 1, position: 'relative' }} />
                             </div>
                             <div className='col-lg-6 col-md-6 col-12'>
-                                <div className='d-flex flex-column align-items-center justify-content-center text-center'>
+                                <div className='d-flex flex-column align-items-center justify-content-center text-center'
+                                style={{zIndex: 1, position: 'relative'}}>
                                     <h4 className='playfair-display'>Notre Localisation</h4>
                                     <hr className='border-2 border-main opacity-100 ' style={{ width: "20%", maxWidth: "250px" }} />
                                     <p className='poppins'>
@@ -121,10 +137,9 @@ function Home() {
                             <h3 className='playfair-display'>Découvrez</h3>
                             <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
                             <div className='row'>
-                                <ActivityCard content={"Pêche"} img={heroImg} />
-                                <ActivityCard content={"Camping"} img={img8} />
-                                <ActivityCard content={"Pêche"} img={heroImg} />
-                                <ActivityCard content={"Pêche"} img={heroImg} />
+                                <ActivityCard content={"Pêche"} img={img4} link='/activites/peche' />
+                                <ActivityCard content={"Camping"} img={img5} link='/activites/camping' />
+                                <ActivityCard content={"Balades & Transports"} img={img6} link='/activites/balades-transports' />
                             </div>
                         </div>
                     </div>
@@ -134,17 +149,19 @@ function Home() {
                 <div className='bg-white py-4'>
                     <div className='container'>
                         <div className="d-flex flex-column align-items-center justify-content-center text-center">
-                            <h3 className='playfair-display text-center'>Offres spéciales exclusives</h3>
-                            <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
-                            <p className='text-center'>
-                                Nous proposons plusieurs forfaits luxueux, pour des séjours exclusifs ou en hôtel-boutique.
-                                Choisissez votre forfait pour une expérience intime, chaleureuse et luxueuse.
-                            </p>
+                            <div className='section-titled d-flex flex-column align-items-center justify-content-center' >
+                                <h3 className='playfair-display text-center'>Offres spéciales exclusives</h3>
+                                <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
+                                <p className='text-center'>
+                                    Nous proposons plusieurs forfaits luxueux, pour des séjours exclusifs ou en hôtel-boutique.
+                                    Choisissez votre forfait pour une expérience intime, chaleureuse et luxueuse.
+                                </p>
+                            </div>
 
                         </div>
                     </div>
 
-                    <ThreeImagesBack img1={img8} img2={img7} img3={img4}>
+                    <ThreeImagesBack img1={img2} img2={img8} img3={img2}>
                         <Clouds />
                         <Clouds rotate={'180deg'} pos='bottom' />
                     </ThreeImagesBack>
@@ -211,12 +228,14 @@ function Home() {
                 <div className='bg-white py-4'>
                     <div className='container'>
                         <div className="d-flex flex-column align-items-center justify-content-center text-center">
+                            <div className='section-titled d-flex flex-column align-items-center justify-content-center'>
                             <h3 className='playfair-display text-center'>Awards & Press</h3>
                             <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
                             <p className='text-center'>
                                 Véritable havre de paix et d'harmonie, nous vous accueillons pour une expérience de luxe intime et personnalisée à Zanzibar,
                                 sur la spectaculaire plage de sable blanc de Paje.
                             </p>
+                            </div>
                         </div>
                     </div>
                 </div>

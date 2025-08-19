@@ -4,8 +4,9 @@ import img5 from '../assets/5.jpg'
 import loca from '../assets/loca.webp'
 import Footer from '../Comps/Footer'
 import ThreeImagesBack from '../Comps/ThreeImagesBack'
-import MenuCard from '../Comps/MenuCard'
+import ThreeImagesWithHoverChanges from '../Comps/ThreeImagesWithHoverChanges'
 import Clouds from '../Comps/Clouds'
+import MenuCard from '../Comps/MenuCard'
 import { Link } from 'react-router-dom'
 function Restaurant() {
     return (
@@ -29,7 +30,29 @@ function Restaurant() {
                 </div>
 
                 {/*Seconde SECTION*/}
-                <div className='bg-main50 py-4'>
+                <div className='bg-white py-4'>
+                    <div className='container '>
+                        <div className='text-center d-flex align-items-center justify-content-center flex-column'>
+                            <div className='section-titled d-flex flex-column align-items-center justify-content-center'>
+
+                                <h3 className='playfair-display'>ToubaCouta Evasion – Nature & Élégance au cœur du Delta</h3>
+                                <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
+                                <p className='poppins'>Véritable écrin de calme et d’authenticité, ToubaCouta Evasion vous invite à vivre une expérience unique, intime et immersive, au cœur du majestueux Delta du Saloum. Entre bolongs scintillants, forêts paisibles et rencontres inoubliables avec la nature, chaque instant ici est une reconnexion avec l’essentiel.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/*3e SECTION avec image*/}
+                <ThreeImagesWithHoverChanges img1={img5} img2={loca} img3={heroImg}>
+                    <Clouds />
+
+                    {/* Nuages en bas */}
+                    <Clouds rotate={'180deg'} pos='bottom' />
+                </ThreeImagesWithHoverChanges>
+
+                {/*Seconde SECTION*/}
+                <div className='bg-white py-4'>
                     <div className='container '>
                         <div className='text-center d-flex align-items-center justify-content-center flex-column'>
                             <h3 className='playfair-display'>ToubaCouta Evasion – Nature & Élégance au cœur du Delta</h3>
@@ -37,14 +60,6 @@ function Restaurant() {
                             <p className='poppins'>Véritable écrin de calme et d’authenticité, ToubaCouta Evasion vous invite à vivre une expérience unique, intime et immersive, au cœur du majestueux Delta du Saloum. Entre bolongs scintillants, forêts paisibles et rencontres inoubliables avec la nature, chaque instant ici est une reconnexion avec l’essentiel.</p>
                         </div>
                     </div>
-                </div>
-
-                {/*3e SECTION avec image*/}
-                <div>
-                    <ThreeImagesBack img1={logo} img2={heroImg} img3={img5} borderColor='#E9D6BE'>
-                        <Clouds />
-                        <Clouds rotate={'180deg'} pos='bottom' />
-                    </ThreeImagesBack>
                 </div>
 
 
@@ -88,10 +103,10 @@ function Restaurant() {
                             <h3 className='playfair-display'>Nos Plats</h3>
                             <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
                             <div className='row'>
-                                <MenuCard title={"Huîtres Gratins"} img={heroImg} price='7500'/>
-                                <MenuCard title={"Huîtres Gratins"} img={heroImg} price='7500'/>
-                                <MenuCard title={"Pêche"} img={heroImg} price='9000'/>
-                                <MenuCard title={"Pêche"} img={heroImg} price='9000'/>
+                                <MenuCard title={"Huîtres Gratins"} img={heroImg} price='7500' />
+                                <MenuCard title={"Huîtres Gratins"} img={heroImg} price='7500' />
+                                <MenuCard title={"Pêche"} img={heroImg} price='9000' />
+                                <MenuCard title={"Pêche"} img={heroImg} price='9000' />
                             </div>
                         </div>
                     </div>

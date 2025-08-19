@@ -12,7 +12,7 @@ export default function Clouds({ rotate = '0deg', pos = 'top' }) {
                 position: 'absolute',
                 [pos]: 0, // position dynamique : top ou bottom
                 left: 0,
-                zIndex: 1,
+                zIndex: 4,
                 transform: `rotate(${rotate})`,
             }}
         />
