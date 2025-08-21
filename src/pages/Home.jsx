@@ -3,7 +3,7 @@ import bgPattern1 from '../assets/bg-pattern.png'
 import img1 from '../assets/img/Balades/balade2.jpg'
 import img2 from '../assets/img/Camping/camping2.jpg'
 import img3 from '../assets/img/Peche/peche9.jpg'
-import img4 from '../assets/img/Peche/peche9.jpg'
+import img4 from '../assets/img/Peche/peche3.jpg'
 import img5 from '../assets/img/camping/camping1.jpg'
 import img6 from '../assets/img/balades/balade11.jpg'
 import img8 from '../assets/img/peche/peche7.jpg'
@@ -45,7 +45,7 @@ function Home({ onScrollChange }) {
                 <div id='hero' className="d-flex justify-content-center align-items-center"
                     style={{
                         height: 'calc(100vh)',
-                        backgroundImage: `url(${peche9})`,
+                        backgroundImage: `url(${img3})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         backgroundRepeat: 'no-repeat',
