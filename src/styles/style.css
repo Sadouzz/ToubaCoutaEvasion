@@ -43,9 +43,9 @@
     font-weight: 400;
 }
 
-.header-nav .nav-link {
-    /* ou ta couleur */
-}
+/*.header-nav .nav-link {
+    /* ou ta couleur 
+}*/
 
 .header-nav .nav-link:hover {
     color: #f4c542;
