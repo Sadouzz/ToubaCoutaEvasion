@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-//import './styles/main.scss';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/main.scss';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 import HeaderBootstrap from './Comps/HeaderBootstrap';
 import SidebarBootstrap from './Comps/SidebarBootstrap';
 import Home from './pages/Home';
