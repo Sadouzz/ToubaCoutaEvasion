@@ -24,81 +24,82 @@ import bgPattern1 from '../assets/bg-pattern.png'
 import loca from '../assets/loca.webp'
 import Footer from '../Comps/Footer'
 import ThreeImagesBack from '../Comps/ThreeImagesBack'
+import BaladesLearnMore from '../Comps/BaladesLearnMore'
 import PhotoCard from '../Comps/PhotoCard'
 import Clouds from '../Comps/Clouds'
 import { Link, NavLink } from 'react-router-dom'
 import { useEffect, useRef, useState } from "react";
 export default function Balades() {
     const [isSticky, setIsSticky] = useState(false);
-        const sentinelRef = useRef(null);
-    
-        useEffect(() => {
-            const observer = new IntersectionObserver(
-                ([entry]) => {
-                    // Quand le sentinel sort de la vue (vers le haut) → header devient sticky
-                    setIsSticky(!entry.isIntersecting);
-                },
-                {
-                    root: null,
-                    threshold: 0,
-                    rootMargin: "-60px 0px 0px 0px", // déclenche 60px avant le haut
-                }
-            );
-    
-            if (sentinelRef.current) {
-                observer.observe(sentinelRef.current);
+    const sentinelRef = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                // Quand le sentinel sort de la vue (vers le haut) → header devient sticky
+                setIsSticky(!entry.isIntersecting);
+            },
+            {
+                root: null,
+                threshold: 0,
+                rootMargin: "-60px 0px 0px 0px", // déclenche 60px avant le haut
             }
-    
-            return () => {
-                if (sentinelRef.current) observer.unobserve(sentinelRef.current);
-            };
-        }, []);
-        return (
-            <>
-                <main id="main" className="main">
-                    {/*HERO SECTION*/}
-                    <div id='hero' className=""
-                        style={{
-                            height: 'calc(100vh - 200px)',
-                            backgroundImage: `url(${img5})`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                            backgroundRepeat: 'no-repeat',
-                            position: 'relative'
-                        }}>
-                        {/* sentinel invisible placé en bas du hero */}
-                        <div ref={sentinelRef} style={{ position: "absolute", bottom: 0, height: 1, width: "100%" }} />
-                        <header  className="header second-header  align-content-center bg-main text-light shadow-sm py-2 w-100 " 
+        );
+
+        if (sentinelRef.current) {
+            observer.observe(sentinelRef.current);
+        }
+
+        return () => {
+            if (sentinelRef.current) observer.unobserve(sentinelRef.current);
+        };
+    }, []);
+    return (
+        <>
+            <main id="main" className="main">
+                {/*HERO SECTION*/}
+                <div id='hero' className=""
+                    style={{
+                        height: 'calc(100vh - 200px)',
+                        backgroundImage: `url(${img5})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                        position: 'relative'
+                    }}>
+                    {/* sentinel invisible placé en bas du hero */}
+                    <div ref={sentinelRef} style={{ position: "absolute", bottom: 0, height: 1, width: "100%" }} />
+                    <header className="header second-header  align-content-center bg-main text-light shadow-sm py-2 w-100 "
                         style={{
                             position: isSticky ? 'fixed' : 'absolute',
                             bottom: isSticky ? "auto" : 0,
                             top: isSticky ? "60px" : "auto",
                             zIndex: 1000,
                         }}>
-                            <nav className="header-nav ">
-                                <ul className="d-flex align-items-center justify-content-center list-unstyled mb-0 text-uppercase" >
-    
-                                    <li className="nav-item">
-                                        <NavLink to="/activites/peche" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`} >
-                                            <span>Pêche</span>
-                                        </NavLink>
-                                    </li>
-                                    <li className="nav-item ms-4">
-                                        <NavLink to="/activites/camping" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`}>
-                                            <span>Camping</span>
-                                        </NavLink>
-                                    </li>
-    
-                                    <li className="nav-item ms-4">
-                                        <NavLink to="/activites/balades-transports" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`}>
-                                            <span>Balades & Transports</span>
-                                        </NavLink>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </header>
-    
-                    </div>
+                        <nav className="header-nav ">
+                            <ul className="d-flex align-items-center justify-content-center list-unstyled mb-0 text-uppercase" >
+
+                                <li className="nav-item">
+                                    <NavLink to="/activites/peche" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`} >
+                                        <span>Pêche</span>
+                                    </NavLink>
+                                </li>
+                                <li className="nav-item ms-4">
+                                    <NavLink to="/activites/camping" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`}>
+                                        <span>Camping</span>
+                                    </NavLink>
+                                </li>
+
+                                <li className="nav-item ms-4">
+                                    <NavLink to="/activites/balades-transports" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`}>
+                                        <span>Balades & Transports</span>
+                                    </NavLink>
+                                </li>
+                            </ul>
+                        </nav>
+                    </header>
+
+                </div>
 
                 {/*Seconde SECTION*/}
                 <div className='bg-white py-4'>
@@ -140,7 +141,7 @@ export default function Balades() {
                             </div>
                             <div className='col-lg-6 col-md-6 col-12'>
                                 <div className='d-flex flex-column align-items-center justify-content-center text-center'>
-                                    <h4 className='playfair-display'>Nos Services</h4>
+                                    <h4 className='playfair-display m-0'>Nos Services</h4>
                                     <hr className='border-2 border-main opacity-100 ' style={{ width: "20%", maxWidth: "250px" }} />
                                     <p className='poppins'>
 
@@ -165,11 +166,34 @@ export default function Balades() {
                     </div>
                 </div>
 
+
+                
+                <div>
+                    <BaladesLearnMore title={'Île aux oiseaux'} content={'Entre pistes sauvages, sentiers de brousse et paysages à couper le souffle, ToubaCouta devient un terrain de jeu grandeur nature pour les amateurs d’aventure et de sensations fortes.Que vous soyez amateur de sensations, amoureux de la nature ou curieux de découvrir le delta autrement, ToubaCouta Aventure vous ouvre la voie dune immersion unique, entre adrénaline et découverte.'} img={img5} modalContent={'Entre pistes sauvages, sentiers de brousse et paysages à couper le souffle, ToubaCouta devient un terrain de jeu grandeur nature pour les amateurs d’aventure et de sensations fortes.Que vous soyez amateur de sensations, amoureux de la nature ou curieux de découvrir le delta autrement, ToubaCouta Aventure vous ouvre la voie dune immersion unique, entre adrénaline et découverte.'}>
+
+                    </BaladesLearnMore>
+                    <BaladesLearnMore reversed={true} title={'Baobab sacré sipo'} content={'Entre pistes sauvages, sentiers de brousse et paysages à couper le souffle, ToubaCouta devient un terrain de jeu grandeur nature pour les amateurs d’aventure et de sensations fortes.Que vous soyez amateur de sensations, amoureux de la nature ou curieux de découvrir le delta autrement, ToubaCouta Aventure vous ouvre la voie dune immersion unique, entre adrénaline et découverte.'} img={img5} modalContent={'Entre pistes sauvages, sentiers de brousse et paysages à couper le souffle, ToubaCouta devient un terrain de jeu grandeur nature pour les amateurs d’aventure et de sensations fortes.Que vous soyez amateur de sensations, amoureux de la nature ou curieux de découvrir le delta autrement, ToubaCouta Aventure vous ouvre la voie dune immersion unique, entre adrénaline et découverte.'}>
+
+                    </BaladesLearnMore>
+                    <BaladesLearnMore title={'Île aux coquillages'} content={'Entre pistes sauvages, sentiers de brousse et paysages à couper le souffle, ToubaCouta devient un terrain de jeu grandeur nature pour les amateurs d’aventure et de sensations fortes.Que vous soyez amateur de sensations, amoureux de la nature ou curieux de découvrir le delta autrement, ToubaCouta Aventure vous ouvre la voie dune immersion unique, entre adrénaline et découverte.'} img={img5} modalContent={'Entre pistes sauvages, sentiers de brousse et paysages à couper le souffle, ToubaCouta devient un terrain de jeu grandeur nature pour les amateurs d’aventure et de sensations fortes.Que vous soyez amateur de sensations, amoureux de la nature ou curieux de découvrir le delta autrement, ToubaCouta Aventure vous ouvre la voie dune immersion unique, entre adrénaline et découverte.'}>
+
+                    </BaladesLearnMore>
+                    <BaladesLearnMore reversed={true} title={'Reposoir des oiseaux'} content={'Entre pistes sauvages, sentiers de brousse et paysages à couper le souffle, ToubaCouta devient un terrain de jeu grandeur nature pour les amateurs d’aventure et de sensations fortes.Que vous soyez amateur de sensations, amoureux de la nature ou curieux de découvrir le delta autrement, ToubaCouta Aventure vous ouvre la voie dune immersion unique, entre adrénaline et découverte.'} img={img5} modalContent={'Entre pistes sauvages, sentiers de brousse et paysages à couper le souffle, ToubaCouta devient un terrain de jeu grandeur nature pour les amateurs d’aventure et de sensations fortes.Que vous soyez amateur de sensations, amoureux de la nature ou curieux de découvrir le delta autrement, ToubaCouta Aventure vous ouvre la voie dune immersion unique, entre adrénaline et découverte.'}>
+
+                    </BaladesLearnMore>
+                    <BaladesLearnMore title={'Le fromagier géant de Misila'} content={'Entre pistes sauvages, sentiers de brousse et paysages à couper le souffle, ToubaCouta devient un terrain de jeu grandeur nature pour les amateurs d’aventure et de sensations fortes.Que vous soyez amateur de sensations, amoureux de la nature ou curieux de découvrir le delta autrement, ToubaCouta Aventure vous ouvre la voie dune immersion unique, entre adrénaline et découverte.'} img={img5} modalContent={'Entre pistes sauvages, sentiers de brousse et paysages à couper le souffle, ToubaCouta devient un terrain de jeu grandeur nature pour les amateurs d’aventure et de sensations fortes.Que vous soyez amateur de sensations, amoureux de la nature ou curieux de découvrir le delta autrement, ToubaCouta Aventure vous ouvre la voie dune immersion unique, entre adrénaline et découverte.'}>
+
+                    </BaladesLearnMore>
+                    <BaladesLearnMore reversed={true} title={'Excursions dans les parcs exotiques'} content={'Entre pistes sauvages, sentiers de brousse et paysages à couper le souffle, ToubaCouta devient un terrain de jeu grandeur nature pour les amateurs d’aventure et de sensations fortes.Que vous soyez amateur de sensations, amoureux de la nature ou curieux de découvrir le delta autrement, ToubaCouta Aventure vous ouvre la voie dune immersion unique, entre adrénaline et découverte.'} img={img5} modalContent={'Entre pistes sauvages, sentiers de brousse et paysages à couper le souffle, ToubaCouta devient un terrain de jeu grandeur nature pour les amateurs d’aventure et de sensations fortes.Que vous soyez amateur de sensations, amoureux de la nature ou curieux de découvrir le delta autrement, ToubaCouta Aventure vous ouvre la voie dune immersion unique, entre adrénaline et découverte.'}>
+
+                    </BaladesLearnMore>
+                </div>
+
                 {/* Section Nos plats */}
                 <div className="bg-white py-4">
                     <div className="container">
                         <div className='d-flex flex-column align-items-center justify-content-center text-center'>
-                            <h3 className='playfair-display'>Galerie</h3>
+                            <h3 className='playfair-display -0'>Galerie</h3>
                             <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
 
                         </div>

@@ -3,13 +3,17 @@ import { Link } from 'react-router-dom';
 export default function MenuCard({ img, title, price, orders, link }) {
     return (
         <div className="col-lg-3 col-md-6 mb-4">
-            <div className="card text-bg-dark rounded-0 border-0 shadow-lg overflow-hidden menu-card">
-
+            <div className="card text-bg-dark rounded-0 border-0 shadow-lg overflow-hidden menu-card"
+            >
                 {/* Image */}
                 <img
                     src={img}
                     className="card-img"
                     alt={title}
+                    style={{
+                        height: '450px',       // Hauteur fixe pour toutes les cartes
+                        objectFit: 'cover'     // Recadre l'image sans déformation
+                    }}
                 />
 
                 {/* Overlay avec dégradé noir */}
@@ -20,12 +24,12 @@ export default function MenuCard({ img, title, price, orders, link }) {
                     }}
                 >
                     {/* Titre */}
-                    <h2 className="fw-bold text-white poppins">{title}</h2>
+                    <h3 className=" text-white poppins">{title}</h3>
 
                     {/* Prix & commandes */}
-                    <div className="d-flex text-white small ">
+                    {/* <div className="d-flex text-white small ">
                         <h5 className="fw-bold poppins">{price} XOF</h5>
-                    </div>
+                    </div> */}
 
                     {/* Bouton */}
                     {/* <button

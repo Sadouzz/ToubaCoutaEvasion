@@ -1,31 +1,39 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from '../assets/Logo.png';
 
-function HeaderBootstrap({ toggleSidebar }) {
+function HeaderBootstrap({ toggleSidebar, isTooLow }) {
     const location = useLocation();
-
+    const isHome = location.pathname === "/";
     // Vérifie si on est dans /activites ou une sous-page
     const isActivitesPage = location.pathname.startsWith("/activites");
     return (
 
         <>
-            <header className="header fixed-top d-flex align-items-center bg-white shadow-sm py-2 px-3 w-100">
+            <header
+                className={`${isHome && !isTooLow ? "shadow-none bg-transparent" : "shadow-sm bg-white"} header fixed-top d-flex align-items-center py-2 px-3 w-100`}
+            >
                 <div className="d-flex align-items-center justify-content-between w-100">
                     {/* Logo et bouton sidebar */}
                     <div className="d-flex align-items-center">
                         <Link to="/" className="logo d-flex align-items-center text-decoration-none">
                             <img src={logo} alt="Logo" className="me-2" style={{ height: '45px' }} />
-                            <span className="d-none d-lg-block fw-bold text-dark fs-4 cormorant-garamond">ToubaCouta Evasion</span>
+                            <span
+                                className={`${isHome && !isTooLow ? "text-white" : "text-dark"} d-none d-lg-block fw-bold text-dark fs-4 cormorant-garamond`}
+                            >
+                                ToubaCouta Evasion
+                            </span>
                         </Link>
                         <i
-                            className="bi bi-list fs-4 text-primary ms-3 "
+                            className="bi bi-list fs-4 text-primary ms-3 mobile-nav-toggle d-lg-none d-sm-block d-block"
                             onClick={toggleSidebar}
                             style={{ cursor: 'pointer' }}
                         ></i>
                     </div>
 
                     {/* Navigation */}
-                    <nav className="header-nav ms-auto">
+                    <nav
+                        className={`${isHome && !isTooLow ? "text-white" : "text-dark"} header-nav ms-auto d-none d-md-block d-lg-block `}
+                    >
                         <ul className="d-flex align-items-center list-unstyled mb-0 text-uppercase" id="sidebar-nav">
 
                             <li className="nav-item">

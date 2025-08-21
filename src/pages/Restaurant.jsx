@@ -1,5 +1,8 @@
 import logo from '../assets/Logo.png'
 import heroImg from '../assets/9.jpg'
+import huitre1 from '../assets/img/huitre/huitre1.jpeg'
+import huitre2 from '../assets/img/huitre/huitre2.jpeg'
+import huitre3 from '../assets/img/huitre/huitre3.jpeg'
 import img5 from '../assets/5.jpg'
 import loca from '../assets/loca.webp'
 import Footer from '../Comps/Footer'
@@ -15,7 +18,7 @@ function Restaurant() {
                 {/*HERO SECTION*/}
                 <div id='hero' className="d-flex justify-content-center align-items-center"
                     style={{
-                        height: 'calc(100vh - 60px)',
+                        height: 'calc(100vh - 200px)',
                         backgroundImage: `url(${heroImg})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
@@ -103,10 +106,10 @@ function Restaurant() {
                             <h3 className='playfair-display'>Nos Plats</h3>
                             <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
                             <div className='row'>
-                                <MenuCard title={"Huîtres Gratins"} img={heroImg} price='7500' />
-                                <MenuCard title={"Huîtres Gratins"} img={heroImg} price='7500' />
-                                <MenuCard title={"Pêche"} img={heroImg} price='9000' />
-                                <MenuCard title={"Pêche"} img={heroImg} price='9000' />
+                                <MenuCard title={"Huîtres Gratins"} img={huitre1} price='7500' />
+                                <MenuCard title={"Huîtres Gratins"} img={huitre2} price='7500' />
+                                <MenuCard title={"Pêche"} img={huitre1} price='9000' />
+                                <MenuCard title={"Pêche"} img={huitre2} price='9000' />
                             </div>
                         </div>
                     </div>

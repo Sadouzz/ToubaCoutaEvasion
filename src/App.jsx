@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './styles/main.scss';
 import HeaderBootstrap from './Comps/HeaderBootstrap';
@@ -10,15 +10,20 @@ import Camping from './pages/Camping';
 import Balades from './pages/Balades'; 
 
 function App() {
+  const [isTooLow, setIsTooLow] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
+
+  //const location = useLocation(); // ← Hook pour détecter les changements de route
+
+  
   return (
     <>
       <div className={sidebarOpen ? 'toggle-sidebar' : ''}>
         <Router>
-          <HeaderBootstrap toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
+          <HeaderBootstrap toggleSidebar={() => setSidebarOpen(!sidebarOpen)} isTooLow={isTooLow} />
           <SidebarBootstrap />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home onScrollChange={setIsTooLow} />} />
             <Route path="/restaurant" element={<Restaurant />} />
             <Route path="/activites" element={<Peche />} />
             <Route path="/activites/peche" element={<Peche />} />

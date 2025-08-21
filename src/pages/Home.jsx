@@ -15,19 +15,43 @@ import ActivityCard from '../Comps/ActivityCard'
 import ThreeImagesWithHoverChanges from '../Comps/ThreeImagesWithHoverChanges'
 import Clouds from '../Comps/Clouds'
 import { Link } from 'react-router-dom'
-function Home() {
+import { useEffect, useRef, useState } from "react";
+function Home({ onScrollChange }) {
+    const sentinelRef = useRef(null);
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                // envoie à App si le sentinel n'est plus visible
+                onScrollChange(!entry.isIntersecting);
+            },
+            {
+                root: null,
+                threshold: 0,
+                rootMargin: "-60px 0px 0px 0px",
+            }
+        );
+
+        if (sentinelRef.current) {
+            observer.observe(sentinelRef.current);
+        }
+
+        return () => {
+            if (sentinelRef.current) observer.unobserve(sentinelRef.current);
+        };
+    }, [onScrollChange]);
     return (
         <>
-            <main id="main" className="main">
+            <main id="main" className="main home-main">
                 {/*HERO SECTION*/}
                 <div id='hero' className="d-flex justify-content-center align-items-center"
                     style={{
-                        height: 'calc(100vh - 60px)',
+                        height: 'calc(100vh)',
                         backgroundImage: `url(${heroImg})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         backgroundRepeat: 'no-repeat',
                     }}>
+                    <div ref={sentinelRef} style={{ position: "absolute", bottom: 0, height: 1, width: "100%" }} />
 
                     <div className='text-center cormorant-garamond text-light'>
                         <h5>TOUBACOUTA</h5>
@@ -35,6 +59,7 @@ function Home() {
                         <h2>COMPLEXE TOURISTIQUE</h2>
                     </div>
                 </div>
+
 
                 {/*Seconde SECTION*/}
                 <div className='bg-white py-4'>
@@ -105,8 +130,8 @@ function Home() {
                             </div>
                             <div className='col-lg-6 col-md-6 col-12'>
                                 <div className='d-flex flex-column align-items-center justify-content-center text-center'
-                                style={{zIndex: 1, position: 'relative'}}>
-                                    <h4 className='playfair-display'>Notre Localisation</h4>
+                                    style={{ zIndex: 1, position: 'relative' }}>
+                                    <h4 className='playfair-display m-0'>Notre Localisation</h4>
                                     <hr className='border-2 border-main opacity-100 ' style={{ width: "20%", maxWidth: "250px" }} />
                                     <p className='poppins'>
                                         Situé au cœur d’une réserve classée par l’UNESCO, ToubaCouta est une destination unique, où nature sauvage, patrimoine sérère et hospitalité authentique se rencontrent. Entre terre et eau, le village est un point de départ idéal pour explorer les bolongs, observer une faune exceptionnelle, ou simplement se reconnecter à l’essentiel.
@@ -134,7 +159,8 @@ function Home() {
                 <div className="bg-white py-4">
                     <div className="container">
                         <div className='d-flex flex-column align-items-center justify-content-center text-center'>
-                            <h3 className='playfair-display'>Découvrez</h3>
+
+                            <h3 className='playfair-display m-0'>Découvrez</h3>
                             <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
                             <div className='row'>
                                 <ActivityCard content={"Pêche"} img={img4} link='/activites/peche' />
@@ -229,12 +255,12 @@ function Home() {
                     <div className='container'>
                         <div className="d-flex flex-column align-items-center justify-content-center text-center">
                             <div className='section-titled d-flex flex-column align-items-center justify-content-center'>
-                            <h3 className='playfair-display text-center'>Awards & Press</h3>
-                            <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
-                            <p className='text-center'>
-                                Véritable havre de paix et d'harmonie, nous vous accueillons pour une expérience de luxe intime et personnalisée à Zanzibar,
-                                sur la spectaculaire plage de sable blanc de Paje.
-                            </p>
+                                <h3 className='playfair-display text-center'>Awards & Press</h3>
+                                <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
+                                <p className='text-center'>
+                                    Véritable havre de paix et d'harmonie, nous vous accueillons pour une expérience de luxe intime et personnalisée à Zanzibar,
+                                    sur la spectaculaire plage de sable blanc de Paje.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -255,7 +281,7 @@ function Home() {
                             </div>
                             <div className='col-lg-6 col-12'>
                                 <div className='d-flex flex-column align-items-center justify-content-center text-center'>
-                                    <h4 className='playfair-display text-center'>Là où la nature authentique rencontre l’âme du Sénégal</h4>
+                                    <h4 className='playfair-display text-center m-0'>Là où la nature authentique rencontre l’âme du Sénégal</h4>
                                     <hr className='border-2 border-main opacity-100 ' style={{ width: "20%", maxWidth: "250px" }} />
                                     <p>
                                         ToubaCouta Evasion est un refuge éco-responsable, enraciné au cœur du Delta du Saloum, l’une des régions les plus spectaculaires et préservées d’Afrique de l’Ouest. Entre mangroves, bolongs scintillants et baobabs centenaires, notre évasion boutique vous propose une expérience intime, mêlant confort, simplicité et connexion profonde à la nature.

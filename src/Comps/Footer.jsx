@@ -34,29 +34,36 @@ function Footer() {
                         </button>
                     </div>
                     <div className='row poppins'>
-                        <div className='col-lg-4 d-flex align-items-center flex-column'>
+                        <div className='col-lg-4 d-flex align-items- flex-column'>
                             <h5>Contactez Nous</h5>
-                            <p>+221784361818</p>
+                            <p>+221 78 436 18 18</p>
+                            <a href="mailto:toubacouta.evasion@gmail.com">toubacouta.evasion@gmail.com</a>
                         </div>
-                        <div className='col-lg-4 d-flex align-items-center flex-column'>
+                        <div className='col-lg-4 d-flex align-items- flex-column'>
                             <h5>Liens Utiles</h5>
                             <p>+221784361818</p>
                             <p>+221784361818</p>
                             <p>+221784361818</p>
                         </div>
-                        <div className='col-lg-4 d-flex align-items-center flex-column'>
+                        <div className='col-lg-4 d-flex align-items- flex-column'>
                             <h5>Réseaux Sociaux</h5>
                             <p>+221784361818</p>
                         </div>
                     </div>
                 </div>
 
-                <hr className='text-main border-2 opacity-75' />
+                <hr className='text-main border-1 opacity-75' />
                 <div className="container">
-                    <div className='d-flex flex-column align-items-center justify-content-center text-center'>
-                        <h4 className='playfair-display'>Partenaires & Affiliations</h4>
-                        
+                    <div className="row">
+                    <div className="col-12 col-lg-6">
+                        <small>© 2025 ToubaCouta Evasion, All rights reserved.</small>                        
                     </div>
+                    <div className="col-12 col-lg-6 align-content-end">
+                        <small>Designed By <a href="https://ousmansadjo.com/" target='_blank'>Ousman SADJO</a> & Cherif Atab Diop</small>                        
+                    </div>
+
+                    </div>
+                    
                 </div>
             </div>
         </>

@@ -137,7 +137,7 @@ function Peche() {
                             </div>
                             <div className='col-lg-6 col-md-6 col-12'>
                                 <div className='d-flex flex-column align-items-center justify-content-center text-center'>
-                                    <h4 className='playfair-display'>Nos Services</h4>
+                                    <h4 className='playfair-display m-0'>Nos Services</h4>
                                     <hr className='border-2 border-main opacity-100 ' style={{ width: "20%", maxWidth: "250px" }} />
                                     <p className='poppins'>
 
@@ -166,7 +166,7 @@ function Peche() {
                 <div className="bg-white py-4">
                     <div className="container">
                         <div className='d-flex flex-column align-items-center justify-content-center text-center'>
-                            <h3 className='playfair-display'>Galerie</h3>
+                            <h3 className='playfair-display m-0'>Galerie</h3>
                             <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
 
                         </div>

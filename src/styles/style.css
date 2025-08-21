@@ -69,15 +69,28 @@
     /* Search Bar */
 }
 
+.mobile-nav-toggle {
+    z-index: 2010;
+    color: #fff;
+    font-size: 28px;
+    cursor: pointer;
+    display: none;
+    line-height: 0;
+    transition: 0.5s;
+    position: fixed;
+    right: 15px;
+    top: 15px;
+}
+
 /*dzzzzzzzzzzzzzzzzzzzzzzzzz*/
 
 .sidebar {
     position: fixed;
     top: 60px;
-    left: 0;
+    right: 0;
     bottom: 0;
     width: 300px;
-    z-index: 996;
+    z-index: 2000;
     transition: all 0.3s;
     padding: 20px;
     overflow-y: auto;
@@ -89,7 +102,7 @@
 
 @media (max-width: 1199px) {
     .sidebar {
-        left: -300px;
+        right: -300px;
     }
 }
 
@@ -107,13 +120,13 @@
 
     #main,
     #footer {
-        margin-left: 300px;
+        margin-right: 300px;
     }
 }
 
 @media (max-width: 1199px) {
     .toggle-sidebar .sidebar {
-        left: 0;
+        right: 0;
     }
 }
 
@@ -121,11 +134,11 @@
 
     .toggle-sidebar #main,
     .toggle-sidebar #footer {
-        margin-left: 0;
+        margin-right: 0;
     }
 
     .toggle-sidebar .sidebar {
-        left: -300px;
+        right: -300px;
     }
 }
 
@@ -225,6 +238,11 @@
     margin-top: 60px;
     transition: all 0.3s;
     height: calc(100vh - 60px);
+}
+
+#main.home-main {
+    margin-top: 0px;
+    transition: all 0.3s;
 }
 
 .activity-card img {
