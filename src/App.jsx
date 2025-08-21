@@ -4,6 +4,7 @@ import './styles/main.scss';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import HeaderBootstrap from './Comps/HeaderBootstrap';
 import SidebarBootstrap from './Comps/SidebarBootstrap';
+import ScrollToTop from './Comps/ScrollToTop';
 import Home from './pages/Home';
 import Restaurant from './pages/Restaurant';
 import Peche from './pages/Peche';
@@ -21,6 +22,7 @@ function App() {
     <>
       <div className={sidebarOpen ? 'toggle-sidebar' : ''}>
         <Router>
+          <ScrollToTop />
           <HeaderBootstrap toggleSidebar={() => setSidebarOpen(!sidebarOpen)} isTooLow={isTooLow} />
           <SidebarBootstrap />
           <Routes>
