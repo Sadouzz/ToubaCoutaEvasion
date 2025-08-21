@@ -18,7 +18,7 @@ function ActivityCard({ content, img, link='/' }) {
 
                 <div
                     className="card-img-overlay d-flex flex-column justify-content-center align-items-center"
-                    style={{ backgroundColor: "rgba(0,0,0,0.4)" }}
+                    style={{ backgroundColor: "rgba(0,0,0,0.3)" }}
                 >
                     <img src={logo} alt="" style={{ maxWidth: '50px' }} />
                     <h2

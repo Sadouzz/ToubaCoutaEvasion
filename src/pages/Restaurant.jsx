@@ -54,20 +54,11 @@ function Restaurant() {
                     <Clouds rotate={'180deg'} pos='bottom' />
                 </ThreeImagesWithHoverChanges>
 
-                {/*Seconde SECTION*/}
-                <div className='bg-white py-4'>
-                    <div className='container '>
-                        <div className='text-center d-flex align-items-center justify-content-center flex-column'>
-                            <h3 className='playfair-display'>ToubaCouta Evasion – Nature & Élégance au cœur du Delta</h3>
-                            <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
-                            <p className='poppins'>Véritable écrin de calme et d’authenticité, ToubaCouta Evasion vous invite à vivre une expérience unique, intime et immersive, au cœur du majestueux Delta du Saloum. Entre bolongs scintillants, forêts paisibles et rencontres inoubliables avec la nature, chaque instant ici est une reconnexion avec l’essentiel.</p>
-                        </div>
-                    </div>
-                </div>
+                
 
 
                 {/*4e SECTION localisation*/}
-                <div className="bg-secondary py-5">
+                {/* <div className="bg-secondary py-5">
                     <div className="container">
                         <div className='d-flex align-items-center justify-content-between row'>
                             <div className='col-lg-6 col-md-6 col-12'>
@@ -97,7 +88,7 @@ function Restaurant() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
                 {/* Section Nos plats */}
                 <div className="bg-white py-4">

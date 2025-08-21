@@ -1,8 +1,9 @@
 import logo from '../assets/Logo.png'
 import bgPattern1 from '../assets/bg-pattern.png'
+import imgHeroHome from '../assets/imgHeroHome.png'
 import img1 from '../assets/img/Balades/balade2.jpg'
 import img2 from '../assets/img/Camping/camping2.jpg'
-import img3 from '../assets/img/Peche/peche9.jpg'
+import img3 from '../assets/img/balades/balade13.jpg'
 import img4 from '../assets/img/Peche/peche3.jpg'
 import img5 from '../assets/img/Camping/camping1.jpg'
 import img6 from '../assets/img/Balades/balade11.jpg'
@@ -78,9 +79,10 @@ function Home({ onScrollChange }) {
 
                     {/* Contenu textuel */}
                     <div className='text-center cormorant-garamond text-light' style={{ zIndex: 1, position: 'relative' }}>
-                        <h5>TOUBACOUTA</h5>
-                        <h1 className='fw-bold'>EVASION</h1>
-                        <h2>COMPLEXE TOURISTIQUE</h2>
+                        <img src={imgHeroHome} alt=""  
+                        style={{
+                            maxWidth: '300px'
+                        }}/>
                     </div>
                 </div>
 
@@ -111,7 +113,7 @@ function Home({ onScrollChange }) {
                 </div>
 
                 {/*3e SECTION avec image*/}
-                <ThreeImagesWithHoverChanges img1={img1} img2={img3} img3={img2}>
+                <ThreeImagesWithHoverChanges img1={img1} img2={img2} img3={img3}>
                     <Clouds />
 
                     {/* Nuages en bas */}
@@ -143,7 +145,7 @@ function Home({ onScrollChange }) {
                             inset: 0,
                             backgroundImage: `url(${bgPattern1})`,
                             backgroundSize: 'cover',
-                            opacity: .1, // Adjust opacity (0.0 to 1.0)
+                            opacity: .05, // Adjust opacity (0.0 to 1.0)
                             zIndex: 0, // Places it behind the content
                         }}
                     >
@@ -166,12 +168,7 @@ function Home({ onScrollChange }) {
                                     <div className='d-flex align-items-center justify-content-center gap-2'>
                                         <button className='btn btn-main text-light rounded-0 px-4 py-2'>
                                             <span className='cormorant-garamond fs-4'>
-                                                View Offer
-                                            </span>
-                                        </button>
-                                        <button className='btn btn-main text-light rounded-0 px-4 py-2'>
-                                            <span className='cormorant-garamond fs-4'>
-                                                View Offer
+                                                Localisation
                                             </span>
                                         </button>
                                     </div>

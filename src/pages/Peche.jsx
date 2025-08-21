@@ -66,13 +66,13 @@ function Peche() {
                     }}>
                     {/* sentinel invisible placé en bas du hero */}
                     <div ref={sentinelRef} style={{ position: "absolute", bottom: 0, height: 1, width: "100%" }} />
-                    <header className="header second-header  align-content-center bg-main text-light shadow-sm py-2 w-100" 
-                    style={{
-                        position: isSticky ? 'fixed' : 'absolute',
-                        bottom: isSticky ? "auto" : 0,
-                        top: isSticky ? "60px" : "auto",
-                        zIndex: 1000,
-                    }}>
+                    <div className="header second-header  align-content-center bg-main text-light shadow-sm py-2 w-100 "
+                        style={{
+                            position: isSticky ? 'fixed' : 'absolute',
+                            bottom: isSticky ? "auto" : 0,
+                            top: isSticky ? "60px" : "auto",
+                            zIndex: 1000,
+                        }}>
                         <nav className="header-nav ">
                             <ul className="d-flex align-items-center justify-content-center list-unstyled mb-0 text-uppercase" >
 
@@ -81,20 +81,20 @@ function Peche() {
                                         <span>Pêche</span>
                                     </NavLink>
                                 </li>
-                                <li className="nav-item ms-4">
+                                <li className="nav-item ms-3">
                                     <NavLink to="/activites/camping" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`}>
                                         <span>Camping</span>
                                     </NavLink>
                                 </li>
 
-                                <li className="nav-item ms-4">
+                                <li className="nav-item ms-3">
                                     <NavLink to="/activites/balades-transports" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`}>
                                         <span>Balades & Transports</span>
                                     </NavLink>
                                 </li>
                             </ul>
                         </nav>
-                    </header>
+                    </div>
 
                 </div>
 
