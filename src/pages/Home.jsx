@@ -7,6 +7,7 @@ import img4 from '../assets/img/Peche/peche3.jpg'
 import img5 from '../assets/img/Camping/camping1.jpg'
 import img6 from '../assets/img/Balades/balade11.jpg'
 import img8 from '../assets/img/Peche/peche7.jpg'
+import videoFile from '../assets/vidHome.mp4'
 import loca from '../assets/loca.webp'
 import Footer from '../Comps/Footer'
 import ThreeImagesBack from '../Comps/ThreeImagesBack'
@@ -42,24 +43,50 @@ function Home({ onScrollChange }) {
         <>
             <main id="main" className="main home-main">
                 {/*HERO SECTION*/}
-                <div id='hero' className="d-flex justify-content-center align-items-center"
+                <div id='hero' className="d-flex justify-content-center align-items-center position-relative"
                     style={{
                         height: 'calc(100vh)',
-                        backgroundImage: `url(${img3})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        backgroundRepeat: 'no-repeat',
+                        overflow: 'hidden'
                     }}>
+                    {/* Vidéo en arrière-plan */}
+                    <video
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                            objectPosition: 'center',
+                            zIndex: 0,
+                            filter: 'brightness(0.6) contrast(1.15) blur(5px)', // Optionnel: assombrir la vidéo
+                        }}
+                    >
+                        <source src={videoFile} type="video/mp4" />
+                        {/* Image de fallback si la vidéo ne se charge pas */}
+                        Votre navigateur ne supporte pas les vidéos HTML5.
+                    </video>
+
+                    {/* Overlay sombre optionnel pour améliorer la lisibilité du texte */}
+                    
+
                     <div ref={sentinelRef} style={{ position: "absolute", bottom: 0, height: 1, width: "100%" }} />
 
-                    <div className='text-center cormorant-garamond text-light'>
+                    {/* Contenu textuel */}
+                    <div className='text-center cormorant-garamond text-light' style={{ zIndex: 1, position: 'relative' }}>
                         <h5>TOUBACOUTA</h5>
-                        <h1 className='fw-bold '>EVASION</h1>
+                        <h1 className='fw-bold'>EVASION</h1>
                         <h2>COMPLEXE TOURISTIQUE</h2>
                     </div>
                 </div>
 
 
+
+                        
                 {/*Seconde SECTION*/}
                 <div className='bg-white py-4'>
                     <div className='container '>

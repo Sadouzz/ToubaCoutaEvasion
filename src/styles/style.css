@@ -237,7 +237,7 @@
 #main {
     margin-top: 60px;
     transition: all 0.3s;
-    height: calc(100vh - 60px);
+    
 }
 
 #main.home-main {
