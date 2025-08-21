@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 :root {
     font-family: 'Cormorant Garamond', serif;
     line-height: 1.5;
@@ -14,25 +15,37 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    --main: #D4AF7F;
+    --main10: #FBF7F3;
+    --main50: #E9D6BE;
+    --secondary: #F5CEC7;
+    --secondary30: #FCF1EF;
+    --tertiary1: #4B6A6A;
+    --tertiary2: #2A3D45;
+    --neutral1: #F7F6F2;
+    --neutral2: #A4DADC;
 }
 
-.section-titled{
+.section-titled {
     max-width: 800px;
 }
-.section-titled h3{
+
+.section-titled h3 {
     width: 70%;
     margin-bottom: 0;
 }
 
-.cormorant-garamond{
+.cormorant-garamond {
     font-family: 'Cormorant Garamond', serif;
 }
 
-.playfair-display{
+.playfair-display {
     font-family: 'Playfair Display', serif;
 }
 
-.poppins, p{
+.poppins,
+p {
     font-family: 'Poppins', sans-serif;
 }
 
@@ -55,19 +68,19 @@
 header {
     transition: all 0.5s;
     z-index: 997;
-    height: 60px;
+    height: 70px;
     box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
     background-color: #fff;
-    padding-left: 20px;
+    /*padding-left: 20px;
     /* Toggle Sidebar Button */
     /* Search Bar */
 }
 
-.second-header{
+.second-header {
     height: 45px;
 }
 
-.second-header li{
+.second-header li {
     font-family: 'Playfair Display', serif;
     /* Toggle Sidebar Button */
     /* Search Bar */
@@ -83,7 +96,7 @@ header {
     transition: 0.5s;
     position: fixed;
     right: 15px;
-    top: 15px;
+    top: 20px;
 }
 
 /*dzzzzzzzzzzzzzzzzzzzzzzzzz*/
@@ -163,7 +176,7 @@ header {
     align-items: center;
     font-size: 15px;
     font-weight: 600;
-    color: #4154f1;
+    color: var(--main);
     transition: 0.3;
     background: #f6f9ff;
     padding: 10px 15px;
@@ -173,11 +186,11 @@ header {
 .sidebar-nav .nav-link i {
     font-size: 16px;
     margin-right: 10px;
-    color: #4154f1;
+    color: var(--main);
 }
 
 .sidebar-nav .nav-link.collapsed {
-    color: #012970;
+    color: var(--tertiary1);
     background: #fff;
 }
 
@@ -186,12 +199,12 @@ header {
 }
 
 .sidebar-nav .nav-link:hover {
-    color: #4154f1;
+    color: var(--main);
     background: #f6f9ff;
 }
 
 .sidebar-nav .nav-link:hover i {
-    color: #4154f1;
+    color: var(--main);
 }
 
 .sidebar-nav .nav-link .bi-chevron-down {
@@ -214,7 +227,7 @@ header {
     align-items: center;
     font-size: 14px;
     font-weight: 600;
-    color: #012970;
+    color: var(--tertiary1);
     transition: 0.3;
     padding: 10px 0 10px 40px;
     transition: 0.3s;
@@ -229,11 +242,11 @@ header {
 
 .sidebar-nav .nav-content a:hover,
 .sidebar-nav .nav-content a.active {
-    color: #4154f1;
+    color: var(--main);
 }
 
 .sidebar-nav .nav-content a.active i {
-    background-color: #4154f1;
+    background-color: var(--main);
 }
 
 /*dzzzzzzzzzzzzzzzzzzzzzzzzd*/
@@ -241,7 +254,7 @@ header {
 #main {
     margin-top: 60px;
     transition: all 0.3s;
-    
+
 }
 
 #main.home-main {
@@ -258,23 +271,38 @@ header {
     /* zoom */
 }
 
-.menu-card, .photo-card{
+.menu-card,
+.photo-card {
     transition: transform 0.5s ease;
 }
 
-.menu-card img, .photo-card img {
+.menu-card img,
+.photo-card img {
     transition: transform 0.5s ease;
 }
-.menu-card:hover, .photo-card:hover
-{
+
+.activity-img {
+    width: 100%;
+    /* toujours 100% largeur */
+    height: auto;
+    /* fixe la hauteur (tu peux ajuster 300px, 500px, etc.) */
+    object-fit: cover;
+    /* garde le ratio et coupe si nécessaire */
+    border-radius: 8px;
+    /* optionnel : coins arrondis */
+}
+
+.menu-card:hover,
+.photo-card:hover {
     transform: scale(1.05);
 }
 
-.menu-card:hover img, .photo-card:hover img {
+.menu-card:hover img,
+.photo-card:hover img {
     transform: scale(1.05);
     /* zoom */
 }
 
-p{
+p {
     font-weight: 100;
 }

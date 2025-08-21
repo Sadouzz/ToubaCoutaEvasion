@@ -11,6 +11,7 @@ import bgPattern1 from '../assets/bg-pattern.png'
 import loca from '../assets/loca.webp'
 import Footer from '../Comps/Footer'
 import ThreeImagesBack from '../Comps/ThreeImagesBack'
+import ActivityLearnMore from '../Comps/ActivityLearnMore'
 import PhotoCard from '../Comps/PhotoCard'
 import Clouds from '../Comps/Clouds'
 import { useEffect, useRef, useState } from "react";
@@ -58,7 +59,7 @@ function Camping() {const [isSticky, setIsSticky] = useState(false);
                         style={{
                             position: isSticky ? 'fixed' : 'absolute',
                             bottom: isSticky ? "auto" : 0,
-                            top: isSticky ? "60px" : "auto",
+                            top: isSticky ? "70px" : "auto",
                             zIndex: 1000,
                         }}>
                         <nav className="header-nav ">

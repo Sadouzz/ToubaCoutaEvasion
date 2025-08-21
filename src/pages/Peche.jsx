@@ -22,6 +22,7 @@ import bgPattern1 from '../assets/bg-pattern.png'
 import loca from '../assets/loca.webp'
 import Footer from '../Comps/Footer'
 import ThreeImagesBack from '../Comps/ThreeImagesBack'
+import ActivityLearnMore from '../Comps/ActivityLearnMore'
 import PhotoCard from '../Comps/PhotoCard'
 import Clouds from '../Comps/Clouds'
 import { Link, NavLink } from 'react-router-dom'
@@ -70,7 +71,7 @@ function Peche() {
                         style={{
                             position: isSticky ? 'fixed' : 'absolute',
                             bottom: isSticky ? "auto" : 0,
-                            top: isSticky ? "60px" : "auto",
+                            top: isSticky ? "70px" : "auto",
                             zIndex: 1000,
                         }}>
                         <nav className="header-nav ">
@@ -160,6 +161,12 @@ function Peche() {
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div>
+                    <ActivityLearnMore title={'Pêche Assistée'} content={'Excursions de pêche encadrées.'} img={photo2} learnMore={false}/>
+                    <ActivityLearnMore reversed={true} title={'Pêche Assistée'} content={'Balades en pirogue dans les bolongs.'} img={photo2} learnMore={false} />
+                    <ActivityLearnMore title={'Observation du paysage'} content={'Balades en pirogue dans les bolongs.'} img={photo6} learnMore={false} />
                 </div>
 
                 {/* Section Nos plats */}

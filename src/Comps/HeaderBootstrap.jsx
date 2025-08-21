@@ -10,7 +10,7 @@ function HeaderBootstrap({ toggleSidebar, isTooLow }) {
 
         <>
             <header
-                className={`${isHome && !isTooLow ? "shadow-none bg-transparent" : "shadow-sm bg-white"} header fixed-top d-flex align-items-center py-2 px-3 w-100`}
+                className={`${isHome && !isTooLow ? "shadow-none bg-transparent" : "shadow-sm bg-white"} header fixed-top d-flex align-items-center py-2 px-4 w-100`}
             >
                 <div className="d-flex align-items-center justify-content-between w-100">
                     {/* Logo et bouton sidebar */}
@@ -24,7 +24,7 @@ function HeaderBootstrap({ toggleSidebar, isTooLow }) {
                             </span>
                         </Link>
                         <i
-                            className="bi bi-list fs-4 text-primary ms-3 mobile-nav-toggle d-lg-none d-sm-block d-block"
+                            className="bi bi-list fs-2 text-main ms-3 mobile-nav-toggle d-lg-none d-sm-block d-block"
                             onClick={toggleSidebar}
                             style={{ cursor: 'pointer' }}
                         ></i>
@@ -41,25 +41,25 @@ function HeaderBootstrap({ toggleSidebar, isTooLow }) {
                                     <span>Accueil</span>
                                 </NavLink>
                             </li>
-                            <li className="nav-item ms-4">
+                            <li className="nav-item ms-5">
                                 <NavLink to="/activites" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`}>
                                     <span>Activités</span>
                                 </NavLink>
                             </li>
 
-                            <li className="nav-item ms-4">
+                            <li className="nav-item ms-5">
                                 <NavLink to="/restaurant" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`}>
                                     <span>Restaurant</span>
                                 </NavLink>
                             </li>
 
-                            <li className="nav-item ms-4">
+                            <li className="nav-item ms-5">
                                 <NavLink to="/" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`}>
                                     <span>Galerie</span>
                                 </NavLink>
                             </li>
 
-                            <li className="nav-item ms-4">
+                            <li className="nav-item ms-5">
                                 <NavLink to="/" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`}>
                                     <span>Notre histoire</span>
                                 </NavLink>

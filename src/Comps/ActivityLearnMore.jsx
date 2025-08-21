@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import ModalBalades from "../Comps/ModalBalades";
+import ModalBalades from "./ModalBalades";
 
-export default function BaladesLearnMore({ title, content, modalContent, img, reversed }) {
+export default function ActivityLearnMore({ title, content, modalContent, img, reversed, learnMore = true }) {
     const [modalShow, setModalShow] = useState(false);
     const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 576);
 
@@ -13,13 +13,16 @@ export default function BaladesLearnMore({ title, content, modalContent, img, re
 
     return (
         <>
-            <ModalBalades
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-                img={img}
-                title={title}
-                content={modalContent}
-            />
+            {
+                learnMore && (<ModalBalades
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                    img={img}
+                    title={title}
+                    content={modalContent}
+                />)
+            }
+
 
             <div className="bg-white py-4">
                 <div className="container">
@@ -29,18 +32,20 @@ export default function BaladesLearnMore({ title, content, modalContent, img, re
                             reversed ? (
                                 <>
                                     <div className="col-lg-6">
-                                        <img src={img} alt="" className="img-fluid" />
+                                        <img src={img} alt="" className="img-fluid" style={{ height: "400px", objectFit: "cover", width: "100%" }} />
                                     </div>
                                     <div className="col-lg-6 d-flex flex-column align-items-center justify-content-center text-center">
                                         <h3 className="playfair-display m-0">{title}</h3>
                                         <hr className="border-2 border-main opacity-100" style={{ width: "10%", maxWidth: "150px" }} />
                                         <p className="poppins">{content}</p>
-                                        <button
-                                            className="btn btn-main text-light rounded-0 px-4 py-2"
-                                            onClick={() => setModalShow(true)}
-                                        >
-                                            <span className="cormorant-garamond fs-5 text-white">En Savoir Plus</span>
-                                        </button>
+                                        {
+                                            learnMore && (<button
+                                                className="btn btn-main text-light rounded-0 px-4 py-2"
+                                                onClick={() => setModalShow(true)}
+                                            >
+                                                <span className="cormorant-garamond fs-5 text-white">En Savoir Plus</span>
+                                            </button>)
+                                        }
                                     </div>
                                 </>
                             ) : (
@@ -49,15 +54,18 @@ export default function BaladesLearnMore({ title, content, modalContent, img, re
                                         <h3 className="playfair-display m-0">{title}</h3>
                                         <hr className="border-2 border-main opacity-100" style={{ width: "10%", maxWidth: "150px" }} />
                                         <p className="poppins">{content}</p>
-                                        <button
-                                            className="btn btn-main text-light rounded-0 px-4 py-2"
-                                            onClick={() => setModalShow(true)}
-                                        >
-                                            <span className="cormorant-garamond fs-5 text-white">En Savoir Plus</span>
-                                        </button>
+                                        {
+                                            learnMore && (<button
+                                                className="btn btn-main text-light rounded-0 px-4 py-2"
+                                                onClick={() => setModalShow(true)}
+                                            >
+                                                <span className="cormorant-garamond fs-5 text-white">En Savoir Plus</span>
+                                            </button>)
+                                        }
+
                                     </div>
                                     <div className="col-lg-6">
-                                        <img src={img} alt="" className="img-fluid" />
+                                        <img src={img} alt="" className="img-fluid" style={{ height: "400px", objectFit: "cover", width: "100%" }} />
                                     </div>
                                 </>
                             )
@@ -71,12 +79,14 @@ export default function BaladesLearnMore({ title, content, modalContent, img, re
                                     <h3 className="playfair-display m-0">{title}</h3>
                                     <hr className="border-2 border-main opacity-100" style={{ width: "10%", maxWidth: "150px" }} />
                                     <p className="poppins">{content}</p>
-                                    <button
-                                        className="btn btn-main text-light rounded-0 px-4 py-2"
-                                        onClick={() => setModalShow(true)}
-                                    >
-                                        <span className="cormorant-garamond fs-5 text-white">En Savoir Plus</span>
-                                    </button>
+                                    {
+                                        learnMore && (<button
+                                            className="btn btn-main text-light rounded-0 px-4 py-2"
+                                            onClick={() => setModalShow(true)}
+                                        >
+                                            <span className="cormorant-garamond fs-5 text-white">En Savoir Plus</span>
+                                        </button>)
+                                    }
                                 </div>
                             </>
                         )}
