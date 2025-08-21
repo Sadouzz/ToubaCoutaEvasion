@@ -1,6 +1,5 @@
 import logo from '../assets/Logo.png'
 import bgPattern1 from '../assets/bg-pattern.png'
-import heroImg from '../assets/img/peche/peche9.jpg'
 import img1 from '../assets/img/Balades/balade2.jpg'
 import img2 from '../assets/img/Camping/camping2.jpg'
 import img3 from '../assets/img/Peche/peche9.jpg'
@@ -46,7 +45,7 @@ function Home({ onScrollChange }) {
                 <div id='hero' className="d-flex justify-content-center align-items-center"
                     style={{
                         height: 'calc(100vh)',
-                        backgroundImage: `url(${heroImg})`,
+                        backgroundImage: `url(${peche9})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         backgroundRepeat: 'no-repeat',
