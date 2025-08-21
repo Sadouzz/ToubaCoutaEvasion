@@ -37,30 +37,30 @@ function HeaderBootstrap({ toggleSidebar, isTooLow }) {
                         <ul className="d-flex align-items-center list-unstyled mb-0 text-uppercase" id="sidebar-nav">
 
                             <li className="nav-item">
-                                <NavLink to="/" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`} >
+                                <NavLink to="/" className={({ isActive }) => `nav-link ${isActive ? "active-link" : "collapsed"}`} >
                                     <span>Accueil</span>
                                 </NavLink>
                             </li>
                             <li className="nav-item ms-5">
-                                <NavLink to="/activites" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`}>
+                                <NavLink to="/activites" className={({ isActive }) => `nav-link ${isActive ? "active-link" : "collapsed"}`}>
                                     <span>Activités</span>
                                 </NavLink>
                             </li>
 
                             <li className="nav-item ms-5">
-                                <NavLink to="/restaurant" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`}>
+                                <NavLink to="/restaurant" className={({ isActive }) => `nav-link ${isActive ? "active-link" : "collapsed"}`}>
                                     <span>Restaurant</span>
                                 </NavLink>
                             </li>
 
                             <li className="nav-item ms-5">
-                                <NavLink to="/" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`}>
+                                <NavLink to="/galerie" className={({ isActive }) => `nav-link ${isActive ? "active-link" : "collapsed"}`}>
                                     <span>Galerie</span>
                                 </NavLink>
                             </li>
 
                             <li className="nav-item ms-5">
-                                <NavLink to="/" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`}>
+                                <NavLink to="/" className={({ isActive }) => `nav-link ${isActive ? "active-link" : "collapsed"}`}>
                                     <span>Notre histoire</span>
                                 </NavLink>
                             </li>

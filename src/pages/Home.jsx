@@ -300,7 +300,7 @@ function Home({ onScrollChange }) {
                     <div className='container'>
                         <div className='row d-flex align-items-center'>
                             <div className='col-lg-6 col-12'>
-                                <img src={loca} alt="" className='img-fluid' />
+                                <img src={loca} alt="" className='img-fluid img-hover' />
                             </div>
                             <div className='col-lg-6 col-12'>
                                 <div className='d-flex flex-column align-items-center justify-content-center text-center'>

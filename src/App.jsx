@@ -10,6 +10,7 @@ import Restaurant from './pages/Restaurant';
 import Peche from './pages/Peche';
 import Camping from './pages/Camping'; 
 import Balades from './pages/Balades'; 
+import Galerie from './pages/Galerie'; 
 
 function App() {
   const [isTooLow, setIsTooLow] = useState(false);
@@ -32,6 +33,7 @@ function App() {
             <Route path="/activites/peche" element={<Peche />} />
             <Route path="/activites/camping" element={<Camping />} />
             <Route path="/activites/balades-transports" element={<Balades />} />
+            <Route path="/galerie" element={<Galerie />} />
           </Routes>
         </Router>
       </div>

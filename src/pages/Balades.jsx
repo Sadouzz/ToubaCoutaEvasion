@@ -80,18 +80,18 @@ export default function Balades() {
                             <ul className="d-flex align-items-center justify-content-center list-unstyled mb-0 text-uppercase" >
 
                                 <li className="nav-item">
-                                    <NavLink to="/activites/peche" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`} >
+                                    <NavLink to="/activites/peche" className={({ isActive }) => `nav-link ${isActive ? "active-link" : "collapsed"}`} >
                                         <span>Pêche</span>
                                     </NavLink>
                                 </li>
                                 <li className="nav-item ms-3">
-                                    <NavLink to="/activites/camping" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`}>
+                                    <NavLink to="/activites/camping" className={({ isActive }) => `nav-link ${isActive ? "active-link" : "collapsed"}`}>
                                         <span>Camping</span>
                                     </NavLink>
                                 </li>
 
                                 <li className="nav-item ms-3">
-                                    <NavLink to="/activites/balades-transports" className={({ isActive }) => `nav-link ${isActive ? " text-decoration-underline" : "collapsed"}`}>
+                                    <NavLink to="/activites/balades-transports" className={({ isActive }) => `nav-link ${isActive ? "active-link" : "collapsed"}`}>
                                         <span>Balades & Transports</span>
                                     </NavLink>
                                 </li>

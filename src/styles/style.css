@@ -56,12 +56,110 @@ p {
     font-weight: 400;
 }
 
+header a {
+    position: relative;
+}
+
+header .active-link span {
+    color: var(--main);
+}
+
+header .active-link span::before {
+    width: 50%;
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    right: 50%;
+    justify-content: space-around;
+    align-items: center;
+    height: 1px;
+    z-index: -1;
+    transition: .5s;
+    border-color: var(--main);
+    border-bottom: solid;
+}
+
+header a span::before {
+    width: 0%;
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    right: 50%;
+    justify-content: space-around;
+    align-items: center;
+    height: 1px;
+    z-index: -1;
+    transition: .5s;
+    border-color: var(--main);
+    border-bottom: solid;
+}
+
+header a span:hover::before {
+    left: 0;
+    right: 0;
+    color: var(--main);
+    width: 100%;
+}
+
+.second-header a {
+    position: relative;
+}
+
+.second-header .active-link span {
+    color: var(--neutral1);
+}
+
+.second-header .active-link span::before {
+    width: 50%;
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    right: 50%;
+    justify-content: space-around;
+    align-items: center;
+    height: 1px;
+    z-index: -1;
+    transition: .5s;
+    border-color: var(--neutral1);
+    border-bottom: solid;
+}
+
+.second-header a span::before {
+    width: 0%;
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    right: 50%;
+    justify-content: space-around;
+    align-items: center;
+    height: 1px;
+    z-index: -1;
+    transition: .5s;
+    border-color: var(--neutral1);
+    border-bottom: solid;
+}
+
+.second-header a span:hover::before {
+    left: 0;
+    right: 0;
+    color: var(--neutral1);
+    width: 100%;
+}
+
+header .nav-link:hover {
+    color: var(--neutral1);
+    /* exemple de survol doré */
+}
 /*.header-nav .nav-link {
     /* ou ta couleur 
 }*/
 
-.header-nav .nav-link:hover {
-    color: #f4c542;
+header .nav-link:hover {
+    color: var(--main);
     /* exemple de survol doré */
 }
 
@@ -260,6 +358,14 @@ header {
 #main.home-main {
     margin-top: 0px;
     transition: all 0.3s;
+}
+
+.img-hover {
+    transition: transform 0.5s ease;
+}
+
+.img-hover:hover {
+    transform: scale(1.1);
 }
 
 .activity-card img {

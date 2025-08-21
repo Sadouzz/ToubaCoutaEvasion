@@ -36,18 +36,22 @@ function Footer() {
                     <div className='row poppins'>
                         <div className='col-lg-4 d-flex align-items- flex-column'>
                             <h5>Contactez Nous</h5>
-                            <p>+221 78 436 18 18</p>
+                            <p className='mb-0'>+221 78 436 18 18</p>
                             <a href="mailto:toubacouta.evasion@gmail.com">toubacouta.evasion@gmail.com</a>
                         </div>
                         <div className='col-lg-4 d-flex align-items- flex-column'>
                             <h5>Liens Utiles</h5>
-                            <p>+221784361818</p>
-                            <p>+221784361818</p>
-                            <p>+221784361818</p>
+                            <p className='mb-0'>+221 78 436 18 18</p>
+                            <p className='mb-0'>+221 78 436 18 18</p>
+                            <p className='mb-0'>+221 78 436 18 18</p>
                         </div>
                         <div className='col-lg-4 d-flex align-items- flex-column'>
                             <h5>Réseaux Sociaux</h5>
-                            <p>+221784361818</p>
+                            <div className='d-flex gap-3'>
+                                <a href="https://www.facebook.com/profile.php?id=61578139113250&mibextid=wwXIfr&mibextid=wwXIfr" target='_blank'><i class="bi bi-facebook"></i></a>
+                                <a href="https://www.instagram.com/toubacoutaevasion?igsh=MXdpZWo5MGlheGN0Nw%3D%3D&utm_source=qr" target='_blank'><i class="bi bi-instagram"></i></a>
+                                <a href="https://www.tiktok.com/@toubacouta.evasio?_t=ZM-8z4RzkCFXLZ&_r=1" target='_blank'><i class="bi bi-tiktok"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -55,15 +59,15 @@ function Footer() {
                 <hr className='text-main border-1 opacity-75' />
                 <div className="container">
                     <div className="row">
-                    <div className="col-12 col-lg-6">
-                        <small>© 2025 ToubaCouta Evasion, All rights reserved.</small>                        
-                    </div>
-                    <div className="col-12 col-lg-6 align-content-end">
-                        <small>Designed By <a href="https://ousmansadjo.com/" target='_blank'>Ousman SADJO</a> & Cherif Atab Diop</small>                        
-                    </div>
+                        <div className="col-12 col-lg-6">
+                            <small>© 2025 ToubaCouta Evasion, All rights reserved.</small>
+                        </div>
+                        <div className="col-12 col-lg-6 align-content-end">
+                            <small>Designed By <a href="https://ousmansadjo.com/" target='_blank'>Ousman SADJO</a> & Cherif Atab Diop</small>
+                        </div>
 
                     </div>
-                    
+
                 </div>
             </div>
         </>
