@@ -75,11 +75,11 @@ function Home({ onScrollChange }) {
                     {/* Overlay sombre optionnel pour améliorer la lisibilité du texte */}
                     
 
-                    <div ref={sentinelRef} style={{ position: "absolute", bottom: 0, height: 1, width: "100%" }} />
+                    <div style={{ position: "absolute", bottom: 0, height: 1, width: "100%" }} />
 
                     {/* Contenu textuel */}
                     <div className='text-center cormorant-garamond text-light' style={{ zIndex: 1, position: 'relative' }}>
-                        <img src={imgHeroHome} alt=""  
+                        <img ref={sentinelRef} src={imgHeroHome} alt=""  
                         style={{
                             maxWidth: '300px'
                         }}/>
