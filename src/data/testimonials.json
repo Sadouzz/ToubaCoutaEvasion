@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "Arame DIAGNE",
+        "date": "Juin 2025",
+        "rating": 5,
+        "comment": "Great team, always concerned with our comfort. We came back this morning from one fabulous week at Toubacouta Evasion and absolutely loved every minute of our stay in this wonderful hotel. The location is ideal on a gorgeous beach with a huge stretch of white sand and clear blue water. Very near are restaurants and bars but you won't want to get out of the hotel! Extremely clean in and out, the hotel is..."
+    },
+    {
+        "id": 2,
+        "name": "Mohamed FALL",
+        "date": "Mai 2025",
+        "rating": 5,
+        "comment": "Un séjour absolument magique ! L'accueil chaleureux de l'équipe, les chambres impeccables et la vue sur l'océan nous ont conquis. Les activités proposées sont variées et les repas délicieux. Nous recommandons vivement ce complexe pour une escapade inoubliable en famille."
+    },
+    {
+        "id": 3,
+        "name": "Sarah JOHNSON",
+        "date": "Avril 2025",
+        "rating": 4,
+        "comment": "Beautiful location with stunning sunsets over the delta. The staff was incredibly helpful and the excursions to see the dolphins were unforgettable. Room was comfortable and clean. Only minor issue was the WiFi connection, but honestly, it was nice to disconnect for a while!"
+    },
+    {
+        "id": 4,
+        "name": "Fatou SECK",
+        "date": "Mars 2025",
+        "rating": 5,
+        "comment": "Que dire de ce petit paradis ! La gentillesse du personnel, la propreté des lieux et surtout cette vue imprenable sur le Saloum. Les excursions en pirogue sont à ne pas manquer. Un endroit parfait pour se ressourcer et découvrir la beauté du Sénégal."
+    },
+    {
+        "id": 5,
+        "name": "Jean-Pierre MARTIN",
+        "date": "Février 2025",
+        "rating": 5,
+        "comment": "Troisième séjour à Toubacouta Evasion et toujours aussi enchanté ! L'évolution constante du complexe, l'attention portée aux détails et l'authenticité de l'expérience en font notre destination favorite au Sénégal. Les enfants ont adoré les activités nautiques."
+    },
+    {
+        "id": 6,
+        "name": "Aminata DIOP",
+        "date": "Janvier 2025",
+        "rating": 4,
+        "comment": "Un week-end de détente parfait ! L'emplacement est idéal pour explorer le delta du Saloum. Les repas sont savoureux avec des produits locaux de qualité. L'équipe d'animation propose des activités intéressantes. Seul bémol : il faudrait plus d'options végétariennes au menu."
+    }
+]

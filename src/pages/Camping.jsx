@@ -7,7 +7,8 @@ import img5 from '../assets/5.jpg'
 import campingImg1 from '../assets/Camping/1.jpg'
 import campingImg2 from '../assets/Camping/2.jpg'
 import campingImg8 from '../assets/Camping/8.jpg'
-import bgPattern1 from '../assets/bg-pattern.png'
+import bgPattern1 from '../assets/img/bg-pattern.png'
+import bgPattern2 from '../assets/img/bg-pattern2.jpg'
 import loca from '../assets/loca.webp'
 import Footer from '../Comps/Footer'
 import ThreeImagesBack from '../Comps/ThreeImagesBack'
@@ -145,6 +146,12 @@ function Camping() {
                     </div>
                 </div>
 
+                <div>
+                    <ActivityLearnMore title={'Pêche Assistée'} content={'Excursions de pêche encadrées.'} img={photo1} learnMore={false} />
+                    <ActivityLearnMore reversed={true} title={'Pêche Assistée'} content={'Balades en pirogue dans les bolongs.'} img={photo2} learnMore={false} />
+                    <ActivityLearnMore title={'Observation du paysage'} content={'Balades en pirogue dans les bolongs.'} img={photo3} learnMore={false} />
+                </div>
+
                 {/* Section Nos plats */}
                 <div className="bg-white py-4">
                     <div className="container">
@@ -159,14 +166,13 @@ function Camping() {
                 <div className='bg-main10 position-relative'>
                     <div className=''
                         style={{
-                            backgroundImage: `url(${img5})`,
-                            backgroundSize: 'cover',
+                            backgroundImage: `url(${bgPattern2})`,
+                            backgroundSize: 'contain',
                             height: '100%',
                             width: '100%',
-                            backgroundPosition: 'center',
-                            backgroundRepeat: 'no-repeat',
+                            //backgroundRepeat: 'no-repeat',
                             position: 'absolute', // pour placer les nuages
-                            opacity: .51, // Adjust opacity (0.0 to 1.0)
+                            opacity: .1, // Adjust opacity (0.0 to 1.0)
                         }}
                     >
                     </div>

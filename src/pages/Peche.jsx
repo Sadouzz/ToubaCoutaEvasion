@@ -18,7 +18,8 @@ import photo15 from '../assets/img/Peche/peche15.jpg'
 import photo16 from '../assets/img/Peche/peche16.jpg'
 import img5 from '../assets/5.jpg'
 import img7 from '../assets/7.jpg'
-import bgPattern1 from '../assets/bg-pattern.png'
+import bgPattern1 from '../assets/img/bg-pattern.png'
+import bgPattern2 from '../assets/img/bg-pattern2.jpg'
 import loca from '../assets/loca.webp'
 import Footer from '../Comps/Footer'
 import ThreeImagesBack from '../Comps/ThreeImagesBack'
@@ -187,14 +188,13 @@ function Peche() {
                 <div className='bg-main10 position-relative'>
                     <div className=''
                         style={{
-                            backgroundImage: `url(${img5})`,
-                            backgroundSize: 'cover',
+                            backgroundImage: `url(${bgPattern2})`,
+                            backgroundSize: 'contain',
                             height: '100%',
                             width: '100%',
-                            backgroundPosition: 'center',
-                            backgroundRepeat: 'no-repeat',
+                            //backgroundRepeat: 'no-repeat',
                             position: 'absolute', // pour placer les nuages
-                            opacity: .51, // Adjust opacity (0.0 to 1.0)
+                            opacity: .1, // Adjust opacity (0.0 to 1.0)
                         }}
                     >
                     </div>

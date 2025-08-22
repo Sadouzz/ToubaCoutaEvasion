@@ -1,5 +1,5 @@
 import logo from '../assets/Logo.png'
-import bgPattern1 from '../assets/bg-pattern.png'
+import bgPattern1 from '../assets/img/bg-pattern.png'
 import imgHeroHome from '../assets/imgHeroHome.png'
 import img1 from '../assets/img/Balades/balade2.jpg'
 import img2 from '../assets/img/Camping/camping2.jpg'
@@ -8,6 +8,7 @@ import img4 from '../assets/img/Peche/peche3.jpg'
 import img5 from '../assets/img/Camping/camping1.jpg'
 import img6 from '../assets/img/Balades/balade11.jpg'
 import img8 from '../assets/img/Peche/peche7.jpg'
+import balade16 from '../assets/img/Balades/balade16.jpg'
 import videoFile from '../assets/vidHome.mp4'
 import loca from '../assets/loca.webp'
 import Footer from '../Comps/Footer'
@@ -73,22 +74,22 @@ function Home({ onScrollChange }) {
                     </video>
 
                     {/* Overlay sombre optionnel pour améliorer la lisibilité du texte */}
-                    
+
 
                     <div style={{ position: "absolute", bottom: 0, height: 1, width: "100%" }} />
 
                     {/* Contenu textuel */}
                     <div className='text-center cormorant-garamond text-light' style={{ zIndex: 1, position: 'relative' }}>
-                        <img ref={sentinelRef} src={imgHeroHome} alt=""  
-                        style={{
-                            maxWidth: '300px'
-                        }}/>
+                        <img ref={sentinelRef} src={imgHeroHome} alt=""
+                            style={{
+                                maxWidth: '300px'
+                            }} />
                     </div>
                 </div>
 
 
 
-                        
+
                 {/*Seconde SECTION*/}
                 <div className='bg-white py-4'>
                     <div className='container '>
@@ -220,7 +221,7 @@ function Home({ onScrollChange }) {
                         <div className="text-center">
 
                             <div className='row'>
-                                <div className="col-lg-4 playfair-display">
+                                <div className="col-4 playfair-display">
                                     <div className='align-items-center d-flex flex-column'>
                                         <h5 className='text-main'>Camping</h5>
                                         <div className='d-flex justify-content-center align-content-center gap-2'>
@@ -236,7 +237,7 @@ function Home({ onScrollChange }) {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-lg-4 playfair-display">
+                                <div className="col-4 playfair-display">
                                     <div className='align-items-center d-flex flex-column'>
                                         <h5 className='text-main'>Camping</h5>
                                         <div className='d-flex justify-content-center align-content-center gap-2'>
@@ -252,7 +253,7 @@ function Home({ onScrollChange }) {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-lg-4 playfair-display">
+                                <div className="col-4 playfair-display">
                                     <div className='align-items-center d-flex flex-column'>
                                         <h5 className='text-main'>Camping</h5>
                                         <div className='d-flex justify-content-center align-content-center gap-2'>
@@ -300,7 +301,10 @@ function Home({ onScrollChange }) {
                     <div className='container'>
                         <div className='row d-flex align-items-center'>
                             <div className='col-lg-6 col-12'>
-                                <img src={loca} alt="" className='img-fluid img-hover' />
+                                <img src={balade16} alt="" className='img-fluid img-hover'
+                                style={{
+                                    maxHeight: '500px'
+                                }} />
                             </div>
                             <div className='col-lg-6 col-12'>
                                 <div className='d-flex flex-column align-items-center justify-content-center text-center'>
@@ -318,11 +322,13 @@ function Home({ onScrollChange }) {
                                         Fiers de faire partie d’une nouvelle génération de tourisme durable au Sénégal, nous concevons chaque détail avec attention : hébergements à faible impact, guides locaux passionnés, respect des traditions et valorisation du territoire.
                                         Que vous recherchiez l’aventure, la sérénité, ou simplement un retour à l’essentiel, ToubaCouta Evasion vous ouvre les portes d’un monde où nature, partage et présence sont au cœur de tout.
                                     </p>
-                                    <button className='btn btn-main text-light rounded-0 px-4 py-2'>
-                                        <span className='cormorant-garamond fs-5'>
-                                            Notre Histoire
-                                        </span>
-                                    </button>
+                                    <Link className='' to="/notre-histoire">
+                                        <button className='btn btn-main text-light rounded-0 px-4 py-2'>
+                                            <span className='cormorant-garamond fs-5'>
+                                                Notre Histoire
+                                            </span>
+                                        </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

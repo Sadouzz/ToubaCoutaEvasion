@@ -29,7 +29,7 @@ function SidebarBootstrap({ setHeaderOnHomePosition, unSetHeaderOnHomePosition, 
                     </li>
 
                     <li className="nav-item mb-1">
-                        <NavLink to="/" className={({ isActive }) => `nav-link ${isActive ? "" : "collapsed"}`}>
+                        <NavLink to="/galerie" className={({ isActive }) => `nav-link ${isActive ? "" : "collapsed"}`}>
                             <i className="bi bi-mortarboard"></i>
                             <span>Galerie</span>
                         </NavLink>

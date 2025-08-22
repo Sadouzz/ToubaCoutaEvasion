@@ -54,7 +54,7 @@ function Restaurant() {
                     <Clouds rotate={'180deg'} pos='bottom' />
                 </ThreeImagesWithHoverChanges>
 
-                
+
 
 
                 {/*4e SECTION localisation*/}
@@ -90,18 +90,35 @@ function Restaurant() {
                     </div>
                 </div> */}
 
-                {/* Section Nos plats */}
-                <div className="bg-white py-4">
-                    <div className="container">
-                        <div className='d-flex flex-column align-items-center justify-content-center text-center'>
-                            <h3 className='playfair-display'>Nos Plats</h3>
-                            <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
-                            <div className='row'>
-                                <MenuCard title={"Huîtres Gratins"} img={huitre1} price='7500' />
-                                <MenuCard title={"Huîtres Gratins"} img={huitre2} price='7500' />
-                                <MenuCard title={"Pêche"} img={huitre1} price='9000' />
-                                <MenuCard title={"Pêche"} img={huitre2} price='9000' />
+                <div className='bg-white py-4'>
+                    <div className='container '>
+                        <div className='text-center d-flex align-items-center justify-content-center flex-column'>
+                            <div className='section-titled d-flex flex-column align-items-center justify-content-center'>
+
+                                <h3 className='playfair-display'>Nos Plats</h3>
+
+                                <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
+                                <p className='poppins'>Véritable écrin de calme et d’authenticité, ToubaCouta Evasion vous invite à vivre une expérience unique, intime et immersive, au cœur du majestueux Delta du Saloum. Entre bolongs scintillants, forêts paisibles et rencontres inoubliables avec la nature, chaque instant ici est une reconnexion avec l’essentiel.</p>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                {/* Section Nos plats */}
+                <div className='bg-secondary30 py-5 position-relative'>
+                    {/* Nuages en haut */}
+                    <Clouds />
+
+                    {/* Nuages en bas */}
+                    <Clouds rotate={'180deg'} pos='bottom' />
+                    <div className="container">
+                        <div className='row justify-content-center'>
+                            <MenuCard title={"Huîtres Gratins"} img={huitre1} price='7500' />
+                            <MenuCard title={"Huîtres Gratins"} img={huitre2} price='7500' />
+                            <MenuCard title={"Pêche"} img={huitre1} price='9000' />
+                            <MenuCard title={"Pêche"} img={huitre2} price='9000' />
+                            <MenuCard title={"Pêche"} img={huitre2} price='9000' />
+                            <MenuCard title={"Pêche"} img={huitre1} price='9000' />
+                            <MenuCard title={"Huîtres Gratins"} img={huitre2} price='7500' />
                         </div>
                     </div>
                 </div>
