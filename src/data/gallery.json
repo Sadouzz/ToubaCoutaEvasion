@@ -1,0 +1,247 @@
+[
+    {
+        "id": 1,
+        "src": "balade4",
+        "alt": "Balade découverte en nature",
+        "category": "balade",
+        "title": "Balade Nature"
+    },
+    {
+        "id": 2,
+        "src": "balade5",
+        "alt": "Promenade au coucher du soleil",
+        "category": "balade",
+        "title": "Coucher de Soleil"
+    },
+    {
+        "id": 3,
+        "src": "balade6",
+        "alt": "Exploration des mangroves",
+        "category": "balade",
+        "title": "Mangroves"
+    },
+    {
+        "id": 4,
+        "src": "balade7",
+        "alt": "Balade en pirogue traditionnelle",
+        "category": "balade",
+        "title": "Pirogue Traditionnelle"
+    },
+    {
+        "id": 5,
+        "src": "balade8",
+        "alt": "Découverte de la faune locale",
+        "category": "balade",
+        "title": "Faune Locale"
+    },
+    {
+        "id": 6,
+        "src": "balade9",
+        "alt": "Balade ornithologique",
+        "category": "balade",
+        "title": "Ornithologie"
+    },
+    {
+        "id": 7,
+        "src": "balade10",
+        "alt": "Excursion en groupe",
+        "category": "balade",
+        "title": "Excursion Groupe"
+    },
+    {
+        "id": 8,
+        "src": "balade11",
+        "alt": "Promenade matinale",
+        "category": "balade",
+        "title": "Matinale"
+    },
+    {
+        "id": 9,
+        "src": "balade12",
+        "alt": "Balade découverte culturelle",
+        "category": "balade",
+        "title": "Découverte Culturelle"
+    },
+    {
+        "id": 10,
+        "src": "balade13",
+        "alt": "Exploration des îles",
+        "category": "balade",
+        "title": "Îles du Saloum"
+    },
+    {
+        "id": 11,
+        "src": "balade14",
+        "alt": "Randonnée découverte",
+        "category": "balade",
+        "title": "Randonnée"
+    },
+    {
+        "id": 12,
+        "src": "balade15",
+        "alt": "Balade photographique",
+        "category": "balade",
+        "title": "Safari Photo"
+    },
+    {
+        "id": 13,
+        "src": "balade16",
+        "alt": "Promenade en famille",
+        "category": "balade",
+        "title": "Famille"
+    },
+    {
+        "id": 14,
+        "src": "balade17",
+        "alt": "Exploration aquatique",
+        "category": "balade",
+        "title": "Aquatique"
+    },
+    {
+        "id": 15,
+        "src": "balade18",
+        "alt": "Balade nocturne",
+        "category": "balade",
+        "title": "Nocturne"
+    },
+    {
+        "id": 16,
+        "src": "balade19",
+        "alt": "Découverte des villages",
+        "category": "balade",
+        "title": "Villages Locaux"
+    },
+    {
+        "id": 17,
+        "src": "camping1",
+        "alt": "Camping au bord de l'eau",
+        "category": "camping",
+        "title": "Camping Aquatique"
+    },
+    {
+        "id": 18,
+        "src": "camping2",
+        "alt": "Installation de camping confortable",
+        "category": "camping",
+        "title": "Confort Nature"
+    },
+    {
+        "id": 19,
+        "src": "camping3",
+        "alt": "Camping sous les étoiles",
+        "category": "camping",
+        "title": "Nuit Étoilée"
+    },
+    {
+        "id": 20,
+        "src": "peche1",
+        "alt": "Pêche traditionnelle en pirogue",
+        "category": "peche",
+        "title": "Pêche Traditionnelle"
+    },
+    {
+        "id": 21,
+        "src": "peche2",
+        "alt": "Session de pêche matinale",
+        "category": "peche",
+        "title": "Pêche Matinale"
+    },
+    {
+        "id": 22,
+        "src": "peche3",
+        "alt": "Pêche en groupe",
+        "category": "peche",
+        "title": "Pêche Collective"
+    },
+    {
+        "id": 23,
+        "src": "peche4",
+        "alt": "Pêche au filet",
+        "category": "peche",
+        "title": "Pêche au Filet"
+    },
+    {
+        "id": 24,
+        "src": "peche5",
+        "alt": "Retour de pêche",
+        "category": "peche",
+        "title": "Retour de Pêche"
+    },
+    {
+        "id": 25,
+        "src": "peche6",
+        "alt": "Pêche à la ligne",
+        "category": "peche",
+        "title": "Pêche à la Ligne"
+    },
+    {
+        "id": 26,
+        "src": "peche7",
+        "alt": "Pêche sportive",
+        "category": "peche",
+        "title": "Pêche Sportive"
+    },
+    {
+        "id": 27,
+        "src": "peche8",
+        "alt": "Pêche nocturne",
+        "category": "peche",
+        "title": "Pêche Nocturne"
+    },
+    {
+        "id": 28,
+        "src": "peche9",
+        "alt": "Techniques de pêche locale",
+        "category": "peche",
+        "title": "Techniques Locales"
+    },
+    {
+        "id": 29,
+        "src": "peche10",
+        "alt": "Pêche en eau profonde",
+        "category": "peche",
+        "title": "Eau Profonde"
+    },
+    {
+        "id": 30,
+        "src": "peche11",
+        "alt": "Initiation à la pêche",
+        "category": "peche",
+        "title": "Initiation"
+    },
+    {
+        "id": 31,
+        "src": "peche12",
+        "alt": "Pêche aux crevettes",
+        "category": "peche",
+        "title": "Pêche Crevettes"
+    },
+    {
+        "id": 32,
+        "src": "peche13",
+        "alt": "Concours de pêche",
+        "category": "peche",
+        "title": "Concours Pêche"
+    },
+    {
+        "id": 33,
+        "src": "heroImg",
+        "alt": "Vue panoramique du complexe",
+        "category": "hebergement",
+        "title": "Vue Panoramique"
+    },
+    {
+        "id": 34,
+        "src": "img5",
+        "alt": "Hébergement de luxe",
+        "category": "hebergement",
+        "title": "Villa Premium"
+    },
+    {
+        "id": 35,
+        "src": "loca",
+        "alt": "Localisation du complexe",
+        "category": "localisation",
+        "title": "Notre Localisation"
+    }
+]

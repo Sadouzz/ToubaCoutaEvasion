@@ -122,7 +122,7 @@ function Peche() {
 
 
                 {/*4e SECTION service*/}
-                <div className="bg-secondary30 py-5 position-relative">
+                {/* <div className="bg-secondary30 py-5 position-relative">
                     <div
                         style={{
                             position: 'absolute',
@@ -166,7 +166,7 @@ function Peche() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
                 <div>
                     <ActivityLearnMore title={'Pêche Assistée'} content={'Excursions de pêche encadrées.'} img={photo2} learnMore={false}/>

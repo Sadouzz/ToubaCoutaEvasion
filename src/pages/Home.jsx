@@ -47,7 +47,7 @@ function Home({ onScrollChange }) {
                 {/*HERO SECTION*/}
                 <div id='hero' className="d-flex justify-content-center align-items-center position-relative"
                     style={{
-                        height: 'calc(100vh)',
+                        height: 'calc(100dvh)',
                         overflow: 'hidden'
                     }}>
                     {/* Vidéo en arrière-plan */}

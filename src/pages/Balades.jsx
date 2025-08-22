@@ -107,11 +107,9 @@ export default function Balades() {
                     <div className='container '>
                         <div className='text-center d-flex align-items-center justify-content-center flex-column'>
                             <div className='section-titled d-flex flex-column align-items-center justify-content-center'>
-
                                 <h3 className='playfair-display'>Balades & Transports</h3>
                                 <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
                                 <p className='poppins'>Entre pistes sauvages, sentiers de brousse et paysages à couper le souffle, ToubaCouta devient un terrain de jeu grandeur nature pour les amateurs d’aventure et de sensations fortes.
-
                                     Que vous soyez amateur de sensations, amoureux de la nature ou curieux de découvrir le delta autrement, ToubaCouta Aventure vous ouvre la voie d'une immersion unique, entre adrénaline et découverte.</p>
                             </div>
                         </div>
@@ -121,7 +119,7 @@ export default function Balades() {
 
 
                 {/*4e SECTION service*/}
-                <div className="bg-secondary30 py-5 position-relative">
+                {/* <div className="bg-secondary30 py-5 position-relative">
                     <div
                         style={{
                             position: 'absolute',
@@ -165,7 +163,7 @@ export default function Balades() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
 
 

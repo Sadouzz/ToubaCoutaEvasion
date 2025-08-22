@@ -1,14 +1,45 @@
 import logo from '../assets/Logo.png'
 import heroImg from '../assets/9.jpg'
-import photo1 from '../assets/img/Camping/camping1.jpg'
-import photo2 from '../assets/img/Camping/camping2.jpg'
-import photo3 from '../assets/img/Camping/camping3.jpg'
 import img5 from '../assets/5.jpg'
-import campingImg1 from '../assets/Camping/1.jpg'
-import campingImg2 from '../assets/Camping/2.jpg'
-import campingImg8 from '../assets/Camping/8.jpg'
-import bgPattern1 from '../assets/img/bg-pattern.png'
 import loca from '../assets/loca.webp'
+
+// Import des images de balades
+import balade4 from '../assets/img/Balades/balade4.jpg'
+import balade5 from '../assets/img/Balades/balade5.jpg'
+import balade6 from '../assets/img/Balades/balade6.jpg'
+import balade7 from '../assets/img/Balades/balade7.jpg'
+import balade8 from '../assets/img/Balades/balade8.jpg'
+import balade9 from '../assets/img/Balades/balade9.jpg'
+import balade10 from '../assets/img/Balades/balade10.jpg'
+import balade11 from '../assets/img/Balades/balade11.jpg'
+import balade12 from '../assets/img/Balades/balade12.jpg'
+import balade13 from '../assets/img/Balades/balade13.jpg'
+import balade14 from '../assets/img/Balades/balade14.jpg'
+import balade15 from '../assets/img/Balades/balade15.jpg'
+import balade16 from '../assets/img/Balades/balade16.jpg'
+import balade17 from '../assets/img/Balades/balade17.jpg'
+import balade18 from '../assets/img/Balades/balade18.jpg'
+import balade19 from '../assets/img/Balades/balade19.jpg'
+
+// Import des images de camping
+import camping1 from '../assets/img/Camping/camping1.jpg'
+import camping2 from '../assets/img/Camping/camping2.jpg'
+import camping3 from '../assets/img/Camping/camping3.jpg'
+
+// Import des images de pêche
+import peche1 from '../assets/img/Peche/peche1.jpg'
+import peche2 from '../assets/img/Peche/peche2.jpg'
+import peche3 from '../assets/img/Peche/peche3.jpg'
+import peche4 from '../assets/img/Peche/peche4.jpg'
+import peche5 from '../assets/img/Peche/peche5.jpg'
+import peche6 from '../assets/img/Peche/peche6.jpg'
+import peche7 from '../assets/img/Peche/peche7.jpg'
+import peche8 from '../assets/img/Peche/peche8.jpg'
+import peche9 from '../assets/img/Peche/peche9.jpg'
+import peche10 from '../assets/img/Peche/peche10.jpg'
+import peche11 from '../assets/img/Peche/peche11.jpg'
+import peche12 from '../assets/img/Peche/peche12.jpg'
+import peche13 from '../assets/img/Peche/peche13.jpg'
 import Footer from '../Comps/Footer'
 import ThreeImagesBack from '../Comps/ThreeImagesBack'
 import ActivityLearnMore from '../Comps/ActivityLearnMore'
@@ -16,182 +47,325 @@ import PhotoCard from '../Comps/PhotoCard'
 import Clouds from '../Comps/Clouds'
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from 'react-router-dom'
-export default function Galerie()
-{
+import galleryData from '../data/gallery.json'
+
+export default function Galerie() {
     const [isSticky, setIsSticky] = useState(false);
-        const sentinelRef = useRef(null);
-    
-        useEffect(() => {
-            const observer = new IntersectionObserver(
-                ([entry]) => {
-                    // Quand le sentinel sort de la vue (vers le haut) → header devient sticky
-                    setIsSticky(!entry.isIntersecting);
-                },
-                {
-                    root: null,
-                    threshold: 0,
-                    rootMargin: "-60px 0px 0px 0px", // déclenche 60px avant le haut
-                }
-            );
-    
-            if (sentinelRef.current) {
-                observer.observe(sentinelRef.current);
+    const [activeFilter, setActiveFilter] = useState('all');
+    const [filteredImages, setFilteredImages] = useState([]);
+    const [selectedImage, setSelectedImage] = useState(null);
+    const sentinelRef = useRef(null);
+    const galleryRef = useRef(null);
+
+    // Import des images
+    const imageMap = {
+        heroImg,
+        img5,
+        loca,
+        // Balades
+        balade4,
+        balade5,
+        balade6,
+        balade7,
+        balade8,
+        balade9,
+        balade10,
+        balade11,
+        balade12,
+        balade13,
+        balade14,
+        balade15,
+        balade16,
+        balade17,
+        balade18,
+        balade19,
+        // Camping
+        camping1,
+        camping2,
+        camping3,
+        // Pêche
+        peche1,
+        peche2,
+        peche3,
+        peche4,
+        peche5,
+        peche6,
+        peche7,
+        peche8,
+        peche9,
+        peche10,
+        peche11,
+        peche12,
+        peche13
+    };
+
+    const filters = [
+        { key: 'all', label: 'TOUS', count: galleryData.length },
+        { key: 'balade', label: 'BALADES', count: galleryData.filter(img => img.category === 'balade').length },
+        { key: 'peche', label: 'PÊCHE', count: galleryData.filter(img => img.category === 'peche').length },
+        { key: 'camping', label: 'CAMPING', count: galleryData.filter(img => img.category === 'camping').length },
+        { key: 'hebergement', label: 'HÉBERGEMENT', count: galleryData.filter(img => img.category === 'hebergement').length },
+        { key: 'localisation', label: 'LOCALISATION', count: galleryData.filter(img => img.category === 'localisation').length }
+    ];
+
+    // Fonction pour créer la grille masonry
+    const initMasonry = () => {
+        if (!galleryRef.current) return;
+
+        const gallery = galleryRef.current;
+        const items = gallery.querySelectorAll('.masonry-item');
+        const gap = 8; // 8px de gap
+
+        // Calcul du nombre de colonnes selon la largeur d'écran
+        const containerWidth = gallery.offsetWidth;
+        let columns;
+        let itemWidth;
+
+        if (window.innerWidth >= 992) { // lg
+            columns = 4;
+            itemWidth = (containerWidth - (gap * (columns - 1))) / columns;
+        } else if (window.innerWidth >= 768) { // md
+            columns = 3;
+            itemWidth = (containerWidth - (gap * (columns - 1))) / columns;
+        } else { // sm et xs
+            columns = 2;
+            itemWidth = (containerWidth - (gap * (columns - 1))) / columns;
+        }
+
+        // Initialiser les hauteurs des colonnes
+        const columnHeights = new Array(columns).fill(0);
+
+        items.forEach((item, index) => {
+            // Trouver la colonne la plus courte
+            const shortestColumnIndex = columnHeights.indexOf(Math.min(...columnHeights));
+
+            // Définir la position de l'item
+            item.style.position = 'absolute';
+            item.style.width = `${itemWidth}px`;
+            item.style.left = `${shortestColumnIndex * (itemWidth + gap)}px`;
+            item.style.top = `${columnHeights[shortestColumnIndex]}px`;
+
+            // Attendre que l'image soit chargée pour calculer la hauteur
+            const img = item.querySelector('img');
+            if (img.complete) {
+                updateItemHeight(item, shortestColumnIndex, columnHeights, gap);
+            } else {
+                img.onload = () => {
+                    updateItemHeight(item, shortestColumnIndex, columnHeights, gap);
+                };
             }
-    
-            return () => {
-                if (sentinelRef.current) observer.unobserve(sentinelRef.current);
-            };
-        }, []);
-    return(
+        });
+
+        // Définir la hauteur du container
+        const maxHeight = Math.max(...columnHeights);
+        gallery.style.height = `${maxHeight}px`;
+    };
+
+    const updateItemHeight = (item, columnIndex, columnHeights, gap) => {
+        const itemHeight = item.offsetHeight;
+        columnHeights[columnIndex] += itemHeight + gap;
+
+        // Mettre à jour la hauteur du container
+        const gallery = galleryRef.current;
+        if (gallery) {
+            const maxHeight = Math.max(...columnHeights);
+            gallery.style.height = `${maxHeight}px`;
+        }
+    };
+
+    useEffect(() => {
+        if (activeFilter === 'all') {
+            setFilteredImages(galleryData);
+        } else {
+            setFilteredImages(galleryData.filter(img => img.category === activeFilter));
+        }
+    }, [activeFilter]);
+
+    // Initialiser masonry quand les images changent
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            initMasonry();
+        }, 100);
+
+        return () => clearTimeout(timer);
+    }, [filteredImages]);
+
+    // Réinitialiser masonry au redimensionnement
+    useEffect(() => {
+        const handleResize = () => {
+            initMasonry();
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [filteredImages]);
+
+    const handleFilterClick = (filterKey) => {
+        setActiveFilter(filterKey);
+    };
+
+    const openModal = (image) => {
+        setSelectedImage(image);
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeModal = () => {
+        setSelectedImage(null);
+        document.body.style.overflow = 'unset';
+    };
+
+    // Fonction pour déterminer les hauteurs aléatoirement
+    const getRandomHeight = (index) => {
+        const heights = [200, 280, 320, 250, 360, 240, 300, 220];
+        return heights[index % heights.length];
+    };
+
+    return (
         <>
             <main id="main" className="main">
-                {/*HERO SECTION*/}
-                <div id='hero' className=""
-                    style={{
-                        height: 'calc(100vh - 200px)',
-                        backgroundImage: `url(${img5})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        backgroundRepeat: 'no-repeat',
-                        position: 'relative'
-                    }}>
-                    {/* sentinel invisible placé en bas du hero */}
-                    <div ref={sentinelRef} style={{ position: "absolute", bottom: 0, height: 1, width: "100%" }} />
-                    <div className="header second-header  align-content-center bg-main text-light shadow-sm py-2 w-100 "
-                        style={{
-                            position: isSticky ? 'fixed' : 'absolute',
-                            bottom: isSticky ? "auto" : 0,
-                            top: isSticky ? "70px" : "auto",
-                            zIndex: 1000,
-                        }}>
-                        <nav className="header-nav ">
-                            <ul className="d-flex align-items-center justify-content-center list-unstyled mb-0 text-uppercase" >
-
-                                <li className="nav-item">
-                                    <NavLink to="/activites/peche" className={({ isActive }) => `nav-link ${isActive ? "active-link" : "collapsed"}`} >
-                                        <span>Pêche</span>
-                                    </NavLink>
-                                </li>
-                                <li className="nav-item ms-3">
-                                    <NavLink to="/activites/camping" className={({ isActive }) => `nav-link ${isActive ? "active-link" : "collapsed"}`}>
-                                        <span>Camping</span>
-                                    </NavLink>
-                                </li>
-
-                                <li className="nav-item ms-3">
-                                    <NavLink to="/activites/balades-transports" className={({ isActive }) => `nav-link ${isActive ? "active-link" : "collapsed"}`}>
-                                        <span>Balades & Transports</span>
-                                    </NavLink>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-
-                </div>
-
-                {/*Seconde SECTION*/}
-                <div className='bg-white py-4'>
-                    <div className='container '>
-                        <div className='text-center d-flex align-items-center justify-content-center flex-column'>
+                {/* Section Galerie */}
+                <div className='bg-white py-5'>
+                    <div className='container'>
+                        {/* Titre de la section */}
+                        <div className='text-center d-flex align-items-center justify-content-center flex-column mb-5'>
                             <div className='section-titled d-flex flex-column align-items-center justify-content-center'>
-                                <h3 className='playfair-display'>Camping</h3>
-                                <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
-                                <p className='poppins'>
-                                    Avec ses forêts paisibles, ses bolongs mystérieux et ses ciels étoilés à perte de vue, ToubaCouta est rapidement devenu l’un des meilleurs endroits pour vivre une expérience de camping authentique en Afrique de l’Ouest. C’est dans ce décor naturel exceptionnel que nous avons créé ToubaCouta Evasion, un espace dédié aux amoureux de la nature, alliant confort, aventure et déconnexion totale.
+                                <h3 className='playfair-display '>Galerie</h3>
+                                <hr className='border-2 border-main opacity-100 mb-3' style={{ width: "10%", maxWidth: "150px" }} />
+                                <p className='poppins text-muted'>
+                                    Une sélection des plus belles photos de Toubacouta Evasion
                                 </p>
+                            </div>
+                        </div>
+
+                        {/* Filtres */}
+                        <div className="row justify-content-center mb-5">
+                            <div className="col-lg-10">
+                                <ul className="nav nav-pills justify-content-center flex-wrap gallery-filters">
+                                    {filters.map((filter) => (
+                                        <li key={filter.key} className="nav-item mx-2 mb-2">
+                                            <button
+                                                className={`btn cormorant-garamond px-4 py-2 text-uppercase fw-semibold ${activeFilter === filter.key ? 'active btn-main' : 'btn-outline-main'}`}
+                                                onClick={() => handleFilterClick(filter.key)}
+                                                style={{
+                                                    transition: 'all 0.3s ease',
+                                                    fontSize: '0.9rem',
+                                                    letterSpacing: '0.5px'
+                                                }}
+                                            >
+                                                {filter.label}
+                                                <span className="ms-2 badge bg-light text-dark">{filter.count}</span>
+                                            </button>
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
 
-
-
-                {/*4e SECTION service*/}
-                <div className="bg-secondary30 py-5 position-relative">
+                {/* Grille masonry */}
+                <div className='container-fluid'>
                     <div
-                        style={{
-                            position: 'absolute',
-                            height: '100%',
-                            width: '100%',
-                            inset: 0,
-                            backgroundImage: `url(${bgPattern1})`,
-                            backgroundSize: 'cover',
-                            opacity: .1, // Adjust opacity (0.0 to 1.0)
-                            zIndex: 1, // Places it behind the content
-                        }}
+                        ref={galleryRef}
+                        className="masonry-container position-relative"
+                        style={{ width: '100%' }}
                     >
-                    </div>
-                    <div className="container">
-                        <div className='d-flex align-items-center justify-content-between row'>
-                            <div className='col-lg-6 col-md-6 col-12'>
-                                <img src={campingImg1} className='img-fluid position-relative z-1' alt="" />
-                            </div>
-                            <div className='col-lg-6 col-md-6 col-12'>
-                                <div className='d-flex flex-column align-items-center justify-content-center text-center'>
-                                    <h4 className='playfair-display m-0'>Nos Services</h4>
-                                    <hr className='border-2 border-main opacity-100 ' style={{ width: "20%", maxWidth: "250px" }} />
-                                    <p className='poppins'>
-                                        ⛺ Espaces de camping aménagés et sauvages (sous tente ou en bivouac) 🔥 Feux de camp encadrés et soirées autour du feu 🚿 Sanitaires mobiles et douches écologiques 🛶 Balades en pirogue dans les bolongs 🌌 Observation des étoiles et nuits à la belle étoile 🌿 Découverte de la faune et de la flore locales 🥾 Randonnées et circuits nature 👨‍🏫 Encadrement par des guides expérimentés et passionnés
-                                    </p>
-                                    <div className='d-flex align-items-center justify-content-center gap-2'>
-                                        <button className='btn btn-main text-light rounded-0 px-4 py-2'>
-                                            <span className='cormorant-garamond fs-4'>
-                                                View Offer
-                                            </span>
-                                        </button>
+                        {filteredImages.map((image, index) => (
+                            <div
+                                key={image.id}
+                                className="masonry-item"
+                                style={{
+                                    opacity: 0,
+                                    animation: `fadeInUp 0.6s ease forwards ${index * 0.1}s`,
+                                    overflow: 'hidden',
+                                    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                                    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                                    cursor: 'pointer'
+                                }}
+                                onClick={() => openModal(image)}
+                            >
+                                <div className="position-relative">
+                                    <img
+                                        src={imageMap[image.src]}
+                                        alt={image.alt}
+                                        className="img-fluid w-100"
+                                        style={{
+                                            height: `${getRandomHeight(index)}px`,
+                                            objectFit: 'cover',
+                                            transition: 'transform 0.3s ease'
+                                        }}
+                                    />
+                                    <div className="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
+                                        <div className="text-center text-white">
+                                            <i className="bi bi-zoom-in fs-1 mb-2"></i>
+                                            <h6 className="mb-1 fw-bold">{image.title}</h6>
+                                            <small className="text-uppercase opacity-75">{image.category}</small>
+                                        </div>
                                     </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Message si aucune image */}
+                    {filteredImages.length === 0 && (
+                        <div className="text-center py-5">
+                            <i className="bi bi-images text-muted" style={{ fontSize: '4rem' }}></i>
+                            <h4 className="text-muted mt-3">Aucune image trouvée</h4>
+                            <p className="text-muted">Essayez un autre filtre</p>
+                        </div>
+                    )}
+                </div>
+
+                {/* Modal pour affichage en grand */}
+                {selectedImage && (
+                    <div
+                        className="modal fade show d-block"
+                        style={{ backgroundColor: 'rgba(0,0,0,0.9)', zIndex: 9999 }}
+                        onClick={closeModal}
+                    >
+                        <div className="modal-dialog modal-xl modal-dialog-centered">
+                            <div className="modal-content bg-transparent border-0">
+                                <div className="modal-header border-0 pb-0">
+                                    <h5 className="modal-title text-white">{selectedImage.title}</h5>
+                                    <button
+                                        type="button"
+                                        className="btn-close btn-close-white"
+                                        onClick={closeModal}
+                                        aria-label="Fermer"
+                                    ></button>
+                                </div>
+                                <div className="modal-body text-center">
+                                    <img
+                                        src={imageMap[selectedImage.src]}
+                                        alt={selectedImage.alt}
+                                        className="img-fluid rounded shadow"
+                                        style={{ maxHeight: '80vh', objectFit: 'contain' }}
+                                        onClick={(e) => e.stopPropagation()}
+                                    />
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                {/* Section Nos plats */}
-                <div className="bg-white py-4">
-                    <div className="container">
-                        <div className='d-flex flex-column align-items-center justify-content-center text-center'>
-                            <h3 className='playfair-display m-0'>Galerie</h3>
-                            <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
-
-                        </div>
-                    </div>
-                </div>
-
-                <div className='bg-main10 position-relative'>
-                    <div className=''
-                        style={{
-                            backgroundImage: `url(${img5})`,
-                            backgroundSize: 'cover',
-                            height: '100%',
-                            width: '100%',
-                            backgroundPosition: 'center',
-                            backgroundRepeat: 'no-repeat',
-                            position: 'absolute', // pour placer les nuages
-                            opacity: .51, // Adjust opacity (0.0 to 1.0)
-                        }}
-                    >
-                    </div>
-                    <div className='container py-5'>
-
-                        {/* Nuages en haut */}
-                        <Clouds />
-                        <div className='container py-5'>
-                            <div className='row justify-content-center'>
-                                <PhotoCard img={photo1} title={'Retour aux sources'} content={'Pas de murs, pas de montre. Juste le souffle du vent et le chant des insectes.'} />
-                                <PhotoCard img={photo2} title={'Campement du jour'} content={'Monter la tente, allumer le feu, et laisser le monde tourner sans nous.'} />
-                                <PhotoCard img={photo3} title={'Repos sauvage'} content={'Loin des villes, plus proche de soi.'} />
-
-                            </div>
-                        </div>
-
-
-                        {/* Nuages en bas */}
-                        <Clouds rotate={'180deg'} pos='bottom' />
-                    </div>
-                </div>
+                )}
 
                 <Footer />
             </main>
+
+            <style jsx>{`
+                @keyframes fadeInUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(30px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+
+                
+            `}</style>
         </>
     )
 }
