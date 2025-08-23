@@ -60,7 +60,7 @@ function HeaderBootstrap({ toggleSidebar, isTooLow }) {
                             </li>
 
                             <li className="nav-item ms-5">
-                                <NavLink to="/" className={({ isActive }) => `nav-link ${isActive ? "active-link" : "collapsed"}`}>
+                                <NavLink to="/notre-histoire" className={({ isActive }) => `nav-link ${isActive ? "active-link" : "collapsed"}`}>
                                     <span>Notre histoire</span>
                                 </NavLink>
                             </li>
