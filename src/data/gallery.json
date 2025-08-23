@@ -243,5 +243,26 @@
         "alt": "Localisation du complexe",
         "category": "localisation",
         "title": "Notre Localisation"
+    },
+    {
+        "id": 36,
+        "src": "balade1",
+        "alt": "Découverte des villages",
+        "category": "balade",
+        "title": "Villages Locaux"
+    },
+    {
+        "id": 37,
+        "src": "balade2",
+        "alt": "Découverte des villages",
+        "category": "balade",
+        "title": "Villages Locaux"
+    },
+    {
+        "id": 38,
+        "src": "balade3",
+        "alt": "Découverte des villages",
+        "category": "balade",
+        "title": "Villages Locaux"
     }
 ]

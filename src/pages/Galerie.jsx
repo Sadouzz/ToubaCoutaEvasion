@@ -4,6 +4,9 @@ import img5 from '../assets/5.jpg'
 import loca from '../assets/loca.webp'
 
 // Import des images de balades
+import balade1 from '../assets/img/Balades/balade1.jpg'
+import balade2 from '../assets/img/Balades/balade2.jpg'
+import balade3 from '../assets/img/Balades/balade3.jpg'
 import balade4 from '../assets/img/Balades/balade4.jpg'
 import balade5 from '../assets/img/Balades/balade5.jpg'
 import balade6 from '../assets/img/Balades/balade6.jpg'
@@ -45,7 +48,7 @@ import ThreeImagesBack from '../Comps/ThreeImagesBack'
 import ActivityLearnMore from '../Comps/ActivityLearnMore'
 import PhotoCard from '../Comps/PhotoCard'
 import Clouds from '../Comps/Clouds'
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { Link, NavLink } from 'react-router-dom'
 import galleryData from '../data/gallery.json'
 
@@ -56,6 +59,7 @@ export default function Galerie() {
     const [selectedImage, setSelectedImage] = useState(null);
     const sentinelRef = useRef(null);
     const galleryRef = useRef(null);
+    const resizeTimeoutRef = useRef(null);
 
     // Import des images
     const imageMap = {
@@ -63,6 +67,9 @@ export default function Galerie() {
         img5,
         loca,
         // Balades
+        balade1,
+        balade2,
+        balade3,
         balade4,
         balade5,
         balade6,
@@ -108,70 +115,67 @@ export default function Galerie() {
         { key: 'localisation', label: 'LOCALISATION', count: galleryData.filter(img => img.category === 'localisation').length }
     ];
 
-    // Fonction pour créer la grille masonry
-    const initMasonry = () => {
+    // Fonction masonry simplifiée et plus robuste
+    const initMasonry = useCallback(() => {
         if (!galleryRef.current) return;
 
         const gallery = galleryRef.current;
         const items = gallery.querySelectorAll('.masonry-item');
-        const gap = 8; // 8px de gap
 
-        // Calcul du nombre de colonnes selon la largeur d'écran
+        if (items.length === 0) return;
+
+        const gap = 16;
         const containerWidth = gallery.offsetWidth;
-        let columns;
-        let itemWidth;
+        let columns, itemWidth;
 
-        if (window.innerWidth >= 992) { // lg
+        // Déterminer le nombre de colonnes
+        if (window.innerWidth >= 1200) {
             columns = 4;
-            itemWidth = (containerWidth - (gap * (columns - 1))) / columns;
-        } else if (window.innerWidth >= 768) { // md
+        } else if (window.innerWidth >= 992) {
             columns = 3;
-            itemWidth = (containerWidth - (gap * (columns - 1))) / columns;
-        } else { // sm et xs
+        } else if (window.innerWidth >= 768) {
             columns = 2;
-            itemWidth = (containerWidth - (gap * (columns - 1))) / columns;
+        } else {
+            columns = 1;
         }
+
+        itemWidth = (containerWidth - (gap * (columns - 1))) / columns;
+
+        // Réinitialiser le container
+        gallery.style.position = 'relative';
 
         // Initialiser les hauteurs des colonnes
         const columnHeights = new Array(columns).fill(0);
 
         items.forEach((item, index) => {
+            // Réinitialiser les styles
+            item.style.position = 'absolute';
+            item.style.width = `${itemWidth}px`;
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(30px)';
+
             // Trouver la colonne la plus courte
             const shortestColumnIndex = columnHeights.indexOf(Math.min(...columnHeights));
 
-            // Définir la position de l'item
-            item.style.position = 'absolute';
-            item.style.width = `${itemWidth}px`;
+            // Positionner l'item
             item.style.left = `${shortestColumnIndex * (itemWidth + gap)}px`;
             item.style.top = `${columnHeights[shortestColumnIndex]}px`;
 
-            // Attendre que l'image soit chargée pour calculer la hauteur
-            const img = item.querySelector('img');
-            if (img.complete) {
-                updateItemHeight(item, shortestColumnIndex, columnHeights, gap);
-            } else {
-                img.onload = () => {
-                    updateItemHeight(item, shortestColumnIndex, columnHeights, gap);
-                };
-            }
+            // Calculer la hauteur après positionnement
+            const itemHeight = item.offsetHeight;
+            columnHeights[shortestColumnIndex] += itemHeight + gap;
+
+            // Animation d'apparition avec délai
+            setTimeout(() => {
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+            }, index * 50);
         });
 
         // Définir la hauteur du container
         const maxHeight = Math.max(...columnHeights);
         gallery.style.height = `${maxHeight}px`;
-    };
-
-    const updateItemHeight = (item, columnIndex, columnHeights, gap) => {
-        const itemHeight = item.offsetHeight;
-        columnHeights[columnIndex] += itemHeight + gap;
-
-        // Mettre à jour la hauteur du container
-        const gallery = galleryRef.current;
-        if (gallery) {
-            const maxHeight = Math.max(...columnHeights);
-            gallery.style.height = `${maxHeight}px`;
-        }
-    };
+    }, []);
 
     useEffect(() => {
         if (activeFilter === 'all') {
@@ -181,24 +185,35 @@ export default function Galerie() {
         }
     }, [activeFilter]);
 
-    // Initialiser masonry quand les images changent
+    // Initialiser masonry avec un délai minimal
     useEffect(() => {
         const timer = setTimeout(() => {
             initMasonry();
-        }, 100);
+        }, 50); // Délai réduit à 50ms
 
         return () => clearTimeout(timer);
-    }, [filteredImages]);
+    }, [filteredImages, initMasonry]);
 
-    // Réinitialiser masonry au redimensionnement
+    // Gérer le redimensionnement avec debounce
     useEffect(() => {
         const handleResize = () => {
-            initMasonry();
+            if (resizeTimeoutRef.current) {
+                clearTimeout(resizeTimeoutRef.current);
+            }
+
+            resizeTimeoutRef.current = setTimeout(() => {
+                initMasonry();
+            }, 150); // Debounce réduit
         };
 
         window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, [filteredImages]);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+            if (resizeTimeoutRef.current) {
+                clearTimeout(resizeTimeoutRef.current);
+            }
+        };
+    }, [initMasonry]);
 
     const handleFilterClick = (filterKey) => {
         setActiveFilter(filterKey);
@@ -216,7 +231,7 @@ export default function Galerie() {
 
     // Fonction pour déterminer les hauteurs aléatoirement
     const getRandomHeight = (index) => {
-        const heights = [200, 280, 320, 250, 360, 240, 300, 220];
+        const heights = [200, 280, 320, 250, 360, 240, 300, 220, 340, 260];
         return heights[index % heights.length];
     };
 
@@ -264,10 +279,10 @@ export default function Galerie() {
                 </div>
 
                 {/* Grille masonry */}
-                <div className='container-fluid'>
+                <div className='container-fluid px-3'>
                     <div
                         ref={galleryRef}
-                        className="masonry-container position-relative"
+                        className="masonry-container"
                         style={{ width: '100%' }}
                     >
                         {filteredImages.map((image, index) => (
@@ -275,14 +290,14 @@ export default function Galerie() {
                                 key={image.id}
                                 className="masonry-item"
                                 style={{
-                                    opacity: 0,
-                                    animation: `fadeInUp 0.6s ease forwards ${index * 0.1}s`,
+                                    borderRadius: '0px',
                                     overflow: 'hidden',
-                                    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-                                    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                                    cursor: 'pointer'
+                                    boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+                                    cursor: 'pointer',
+                                    transition: 'all 0.3s ease'
                                 }}
                                 onClick={() => openModal(image)}
+                                
                             >
                                 <div className="position-relative">
                                     <img
@@ -291,9 +306,9 @@ export default function Galerie() {
                                         className="img-fluid w-100"
                                         style={{
                                             height: `${getRandomHeight(index)}px`,
-                                            objectFit: 'cover',
-                                            transition: 'transform 0.3s ease'
+                                            objectFit: 'cover'
                                         }}
+                                        loading="eager" // Chargement immédiat
                                     />
                                     <div className="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
                                         <div className="text-center text-white">
@@ -353,17 +368,6 @@ export default function Galerie() {
             </main>
 
             <style jsx>{`
-                @keyframes fadeInUp {
-                    from {
-                        opacity: 0;
-                        transform: translateY(30px);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
-                }
-
                 
             `}</style>
         </>
