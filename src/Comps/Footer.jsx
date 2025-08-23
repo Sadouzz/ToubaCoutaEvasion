@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import logo from '../assets/Logo.png'
 import testimonialsData from '../data/testimonials.json' // Assurez-vous que le chemin est correct
+import { Link } from 'react-router-dom'
 
 function Footer() {
     const [currentTestimonial, setCurrentTestimonial] = useState(0)
@@ -140,11 +141,10 @@ function Footer() {
 
                         <div className='col-lg-4 d-flex align-items-start flex-column mb-4 mb-lg-0'>
                             <h5 className='mb-3'>Liens Utiles</h5>
-                            <a href="#reservations" className='mb-2 text-decoration-none text-dark'>Réservations</a>
-                            <a href="#services" className='mb-2 text-decoration-none text-dark'>Services & Activités</a>
-                            <a href="#galerie" className='mb-2 text-decoration-none text-dark'>Galerie</a>
-                            <a href="#conditions" className='mb-2 text-decoration-none text-dark'>Conditions générales</a>
-                            <a href="#confidentialite" className='mb-0 text-decoration-none text-dark'>Politique de confidentialité</a>
+                            <Link to="/activites" className='mb-2 text-decoration-none text-dark'>Activités</Link>
+                            <Link to="/restaurant" className='mb-2 text-decoration-none text-dark'>Restaurant</Link>
+                            <Link to="/galerie" className='mb-2 text-decoration-none text-dark'>Galerie</Link>
+                            <Link to="/notre-histoire" className='mb-2 text-decoration-none text-dark'>Notre Histoire</Link>
                         </div>
 
                         <div className='col-lg-4 d-flex align-items-start flex-column'>

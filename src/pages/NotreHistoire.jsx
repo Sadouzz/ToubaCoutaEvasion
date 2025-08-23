@@ -83,18 +83,18 @@ function NotreHistoire() {
                             <ul className="d-flex align-items-center justify-content-center list-unstyled mb-0 text-uppercase" >
 
                                 <li className="nav-item">
-                                    <a href="#notre-histoire" className="text-decoration-none">
+                                    <a href="#notre-histoire" className="text-decoration-none text-light">
                                         <span>Pêche</span>
                                     </a>
                                 </li>
                                 <li className="nav-item ms-3">
-                                    <a href="#galerie" className="text-decoration-none">
+                                    <a href="#galerie" className="text-decoration-none text-light">
                                         <span>Camping</span>
                                     </a>
                                 </li>
 
                                 <li className="nav-item ms-3">
-                                    <a href="#just" className="text-decoration-none">
+                                    <a href="#just" className="text-decoration-none text-light">
                                         <span>Balades & Transports</span>
                                     </a>
                                 </li>

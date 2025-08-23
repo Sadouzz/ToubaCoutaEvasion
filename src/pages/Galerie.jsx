@@ -124,7 +124,7 @@ export default function Galerie() {
 
         if (items.length === 0) return;
 
-        const gap = 16;
+        const gap = 4;
         const containerWidth = gallery.offsetWidth;
         let columns, itemWidth;
 
@@ -231,7 +231,7 @@ export default function Galerie() {
 
     // Fonction pour déterminer les hauteurs aléatoirement
     const getRandomHeight = (index) => {
-        const heights = [200, 280, 320, 250, 360, 240, 300, 220, 340, 260];
+        const heights = [200, 280, 320, 250, 360, 240, 300, 220, 340, 260, 800];
         return heights[index % heights.length];
     };
 
