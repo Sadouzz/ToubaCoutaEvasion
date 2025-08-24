@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import logo from '../assets/Logo.png'
-import testimonialsData from '../data/testimonials.json' // Assurez-vous que le chemin est correct
+import testimonialsData from '../data/testimonials.json'
 import { Link } from 'react-router-dom'
 
 function Footer() {
@@ -8,7 +8,8 @@ function Footer() {
     const [testimonials, setTestimonials] = useState([])
 
     useEffect(() => {
-        setTestimonials(testimonialsData)
+        // Limiter à 5 témoignages seulement
+        setTestimonials(testimonialsData.slice(0, 5))
     }, [])
 
     const nextTestimonial = () => {
@@ -25,11 +26,13 @@ function Footer() {
 
     // Auto-rotation des témoignages (optionnel)
     useEffect(() => {
-        const interval = setInterval(() => {
-            nextTestimonial()
-        }, 8000) // Change toutes les 8 secondes
+        if (testimonials.length > 0) {
+            const interval = setInterval(() => {
+                nextTestimonial()
+            }, 8000) // Change toutes les 8 secondes
 
-        return () => clearInterval(interval)
+            return () => clearInterval(interval)
+        }
     }, [testimonials.length])
 
     const renderStars = (rating) => {
@@ -94,7 +97,7 @@ function Footer() {
                         </div>
                     )}
 
-                    {/* Pagination dots */}
+                    {/* Pagination dots - Affiche seulement 5 points maximum */}
                     <div className='d-flex justify-content-center mb-4'>
                         {testimonials.map((_, index) => (
                             <button
@@ -189,11 +192,11 @@ function Footer() {
                 <div className="container">
                     <div className="row">
                         <div className="col-12 col-lg-6">
-                            <small className="text-muted">© 2025 ToubaCouta Evasion, All rights reserved.</small>
+                            <small className="text-muted">© 2025 ToubaCouta Evasion, Tous droits réservés.</small>
                         </div>
                         <div className="col-12 col-lg-6 text-lg-end">
                             <small className="text-muted">
-                                Designed By{' '}
+                                Designé Par{' '}
                                 <a
                                     href="https://ousmansadjo.com/"
                                     target='_blank'

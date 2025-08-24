@@ -217,7 +217,7 @@ function Home({ onScrollChange }) {
                     </ThreeImagesBack>
 
 
-                    <div className='container-fluid mt-4'>
+                    {/* <div className='container-fluid mt-4'>
                         <div className="text-center">
 
                             <div className='row'>
@@ -271,7 +271,7 @@ function Home({ onScrollChange }) {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
 
                 {/*Award*/}
@@ -279,7 +279,7 @@ function Home({ onScrollChange }) {
                     <div className='container'>
                         <div className="d-flex flex-column align-items-center justify-content-center text-center">
                             <div className='section-titled d-flex flex-column align-items-center justify-content-center'>
-                                <h3 className='playfair-display text-center'>Awards & Press</h3>
+                                <h3 className='playfair-display text-center'>Partenaires & Affiliations</h3>
                                 <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
                                 <p className='text-center'>
                                     Véritable havre de paix et d'harmonie, nous vous accueillons pour une expérience de luxe intime et personnalisée à Zanzibar,
