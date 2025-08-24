@@ -112,11 +112,13 @@ function Footer() {
 
                     {/* Call to Action */}
                     <div className='d-flex align-items-center justify-content-center flex-column mb-5'>
-                        <button className='btn border border-1 rounded-0 px-4 py-2 btn-tertiary1'>
-                            <span className='text-white cormorant-garamond text-uppercase fs-5'>
-                                VOIR TOUS LES TÉMOIGNAGES
-                            </span>
-                        </button>
+                        <Link to='/temoignages'>
+                            <button className='btn border border-1 rounded-0 px-4 py-2 btn-tertiary1'>
+                                <span className='text-white cormorant-garamond text-uppercase fs-5'>
+                                    VOIR TOUS LES TÉMOIGNAGES
+                                </span>
+                            </button>
+                        </Link>
                     </div>
 
                     {/* Footer Links */}

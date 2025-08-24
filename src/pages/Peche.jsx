@@ -169,7 +169,7 @@ function Peche() {
                 </div> */}
 
                 <div>
-                    <ActivityLearnMore title={'Pêche Assistée'} content={'Excursions de pêche encadrées.'} img={photo2} learnMore={false}/>
+                    <ActivityLearnMore title={'Pêche Assistée'} content={'Excursions de pêche encadrées.'} img={photo1} learnMore={false} />
                     <ActivityLearnMore reversed={true} title={'Pêche Assistée'} content={'Balades en pirogue dans les bolongs.'} img={photo2} learnMore={false} />
                     <ActivityLearnMore title={'Observation du paysage'} content={'Balades en pirogue dans les bolongs.'} img={photo6} learnMore={false} />
                 </div>
@@ -195,33 +195,29 @@ function Peche() {
                             //backgroundRepeat: 'no-repeat',
                             position: 'absolute', // pour placer les nuages
                             opacity: .1, // Adjust opacity (0.0 to 1.0)
+                            zIndex: 0
                         }}
                     >
                     </div>
-                    <div className='container py-5'>
+                    <div className='container py-5 position-relative z-1'>
 
                         {/* Nuages en haut */}
                         <Clouds />
-                        <div className='container py-5'>
+                        <div className='container py-5 d-flex flex-column align-items-center'>
                             <div className='row justify-content-center'>
-                                <PhotoCard img={photo1} title={'Pêche & Évasion'} content={'L’horizon calme, les lignes tendues. Chaque sortie, une promesse d’émotion.'} />
-                                <PhotoCard img={photo2} title={''} content={''} />
-                                <PhotoCard img={photo3} title={''} content={''} />
-                                <PhotoCard img={photo4} title={''} content={''} />
-                                <PhotoCard img={photo5} title={''} content={''} />
-                                <PhotoCard img={photo6} title={''} content={''} />
-                                <PhotoCard img={photo7} title={''} content={''} />
+                                <PhotoCard img={photo4} title={'Pêche & Évasion'} content={'L’horizon calme, les lignes tendues. Chaque sortie, une promesse d’émotion.'} />
                                 <PhotoCard img={photo8} title={''} content={''} />
-                                <PhotoCard img={photo9} title={''} content={''} />
                                 <PhotoCard img={photo10} title={''} content={''} />
                                 <PhotoCard img={photo11} title={''} content={''} />
-                                <PhotoCard img={photo12} title={''} content={''} />
-                                <PhotoCard img={photo13} title={''} content={''} />
-                                <PhotoCard img={photo14} title={''} content={''} />
-                                <PhotoCard img={photo15} title={''} content={''} />
                                 <PhotoCard img={photo16} title={''} content={''} />
-                                
-                                </div>
+                            </div>
+                            <Link className='mt-5' to='/galerie'>
+                                <button
+                                    className="btn btn-main text-light rounded-0 px-5 py-2"
+                                >
+                                    <span className="cormorant-garamond fs-5 text-white">Découvrir plus de photos</span>
+                                </button>
+                            </Link>
                         </div>
 
 

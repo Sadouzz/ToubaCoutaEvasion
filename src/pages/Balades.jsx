@@ -209,14 +209,15 @@ export default function Balades() {
                             //backgroundRepeat: 'no-repeat',
                             position: 'absolute', // pour placer les nuages
                             opacity: .1, // Adjust opacity (0.0 to 1.0)
+                            zIndex: 0
                         }}
                     >
                     </div>
-                    <div className='container py-5'>
+                    <div className='container py-5 position-relative z-1'>
 
                         {/* Nuages en haut */}
                         <Clouds />
-                        <div className='container py-5'>
+                        <div className='container py-5 d-flex flex-column align-items-center'>
                             <div className='row justify-content-center'>
                                 <PhotoCard img={photo1} title={'Pêche & Évasion'} content={'L’horizon calme, les lignes tendues. Chaque sortie, une promesse d’émotion.'} />
                                 <PhotoCard img={photo2} title={''} content={''} />
@@ -239,6 +240,13 @@ export default function Balades() {
                                 <PhotoCard img={photo19} title={''} content={''} />
 
                             </div>
+                            <Link className='mt-5' to='/galerie'>
+                                <button
+                                    className="btn btn-main text-light rounded-0 px-5 py-2"
+                                >
+                                    <span className="cormorant-garamond fs-5 text-white">Découvrir plus de photos</span>
+                                </button>
+                            </Link>
                         </div>
 
 

@@ -12,6 +12,7 @@ import Camping from './pages/Camping';
 import Balades from './pages/Balades'; 
 import Galerie from './pages/Galerie'; 
 import NotreHistoire from './pages/NotreHistoire'; 
+import Temoignages from './pages/Temoignages';
 
 function App() {
   const [isTooLow, setIsTooLow] = useState(false);
@@ -36,6 +37,7 @@ function App() {
             <Route path="/activites/balades-transports" element={<Balades />} />
             <Route path="/galerie" element={<Galerie />} />
             <Route path="/notre-histoire" element={<NotreHistoire />} />
+            <Route path="/temoignages" element={<Temoignages />} />
           </Routes>
         </Router>
       </div>

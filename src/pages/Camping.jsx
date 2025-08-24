@@ -173,20 +173,28 @@ function Camping() {
                             //backgroundRepeat: 'no-repeat',
                             position: 'absolute', // pour placer les nuages
                             opacity: .1, // Adjust opacity (0.0 to 1.0)
+                            zIndex: 0
                         }}
                     >
                     </div>
-                    <div className='container py-5'>
+                    <div className='container py-5 position-relative z-1'>
 
                         {/* Nuages en haut */}
                         <Clouds />
-                        <div className='container py-5'>
+                        <div className='container py-5 d-flex flex-column align-items-center'>
                             <div className='row justify-content-center'>
                                 <PhotoCard img={photo1} title={'Retour aux sources'} content={'Pas de murs, pas de montre. Juste le souffle du vent et le chant des insectes.'} />
                                 <PhotoCard img={photo2} title={'Campement du jour'} content={'Monter la tente, allumer le feu, et laisser le monde tourner sans nous.'} />
                                 <PhotoCard img={photo3} title={'Repos sauvage'} content={'Loin des villes, plus proche de soi.'} />
 
                             </div>
+                            <Link className='mt-5' to='/galerie'>
+                                <button
+                                    className="btn btn-main text-light rounded-0 px-5 py-2"
+                                >
+                                    <span className="cormorant-garamond fs-5 text-white">Découvrir plus de photos</span>
+                                </button>
+                            </Link>
                         </div>
 
 
