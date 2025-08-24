@@ -556,3 +556,9 @@ p {
 .testimonial-card:hover::before {
     left: 100%;
 }
+
+#notre-histoire,
+#galerie,
+#just {
+    scroll-margin-top: 100px;
+}

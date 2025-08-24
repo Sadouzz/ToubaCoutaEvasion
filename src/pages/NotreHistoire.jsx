@@ -84,18 +84,18 @@ function NotreHistoire() {
 
                                 <li className="nav-item">
                                     <a href="#notre-histoire" className="text-decoration-none text-light">
-                                        <span>Pêche</span>
+                                        <span>Section1</span>
                                     </a>
                                 </li>
                                 <li className="nav-item ms-3">
                                     <a href="#galerie" className="text-decoration-none text-light">
-                                        <span>Camping</span>
+                                        <span>Section2</span>
                                     </a>
                                 </li>
 
                                 <li className="nav-item ms-3">
                                     <a href="#just" className="text-decoration-none text-light">
-                                        <span>Balades & Transports</span>
+                                        <span>Section3</span>
                                     </a>
                                 </li>
                             </ul>
@@ -109,7 +109,7 @@ function NotreHistoire() {
                     <div className='container '>
                         <div className='text-center d-flex align-items-center justify-content-center flex-column'>
                             <div className='section-titled d-flex flex-column align-items-center justify-content-center'>
-                                <h3 className='playfair-display'>Notre Histoire</h3>
+                                <h3 className='playfair-display'>Section1</h3>
                                 <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
                                 <p className='poppins'>Avec ses eaux calmes toute l’année, ses bolongs poissonneux et ses paysages à couper le souffle, ToubaCouta est rapidement devenu l’un des meilleurs spots de pêche sportive et traditionnelle en Afrique de l’Ouest.
                                     C’est dans cet environnement unique que nous avons créé ToubaCouta Evasion, un club de pêche haut de gamme dédié à vous offrir un service de qualité, du matériel performant et une expérience authentique.</p>
@@ -178,7 +178,7 @@ function NotreHistoire() {
                     <div className='container '>
                         <div className='text-center d-flex align-items-center justify-content-center flex-column'>
                             <div className='section-titled d-flex flex-column align-items-center justify-content-center'>
-                                <h3 className='playfair-display'>Galerie</h3>
+                                <h3 className='playfair-display'>Section2</h3>
                                 <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
                                 <p className='poppins'>Avec ses eaux calmes toute l’année, ses bolongs poissonneux et ses paysages à couper le souffle, ToubaCouta est rapidement devenu l’un des meilleurs spots de pêche sportive et traditionnelle en Afrique de l’Ouest.
                                     C’est dans cet environnement unique que nous avons créé ToubaCouta Evasion, un club de pêche haut de gamme dédié à vous offrir un service de qualité, du matériel performant et une expérience authentique.</p>
@@ -187,7 +187,7 @@ function NotreHistoire() {
                     </div>
                 </div>
 
-                <div className='bg-main10 position-relative'>
+                {/* <div className='bg-main10 position-relative'>
                     <div className=''
                         style={{
                             backgroundImage: `url(${bgPattern2})`,
@@ -202,7 +202,7 @@ function NotreHistoire() {
                     </div>
                     <div className='container py-5'>
 
-                        {/* Nuages en haut */}
+                        {/* Nuages en haut }
                         <Clouds />
                         <div className='container py-5'>
                             <div className='row justify-content-center'>
@@ -227,16 +227,16 @@ function NotreHistoire() {
                         </div>
 
 
-                        {/* Nuages en bas */}
+                        {/* Nuages en bas }
                         <Clouds rotate={'180deg'} pos='bottom' />
                     </div>
-                </div>
+                </div> */}
 
                 <div className='bg-white py-4' id='just'>
                     <div className='container '>
                         <div className='text-center d-flex align-items-center justify-content-center flex-column'>
                             <div className='section-titled d-flex flex-column align-items-center justify-content-center'>
-                                <h3 className='playfair-display'>Galerie</h3>
+                                <h3 className='playfair-display'>Section3</h3>
                                 <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
                                 <p className='poppins'>Avec ses eaux calmes toute l’année, ses bolongs poissonneux et ses paysages à couper le souffle, ToubaCouta est rapidement devenu l’un des meilleurs spots de pêche sportive et traditionnelle en Afrique de l’Ouest.
                                     C’est dans cet environnement unique que nous avons créé ToubaCouta Evasion, un club de pêche haut de gamme dédié à vous offrir un service de qualité, du matériel performant et une expérience authentique.</p>

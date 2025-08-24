@@ -219,25 +219,11 @@ export default function Balades() {
                         <Clouds />
                         <div className='container py-5 d-flex flex-column align-items-center'>
                             <div className='row justify-content-center'>
-                                <PhotoCard img={photo1} title={'Pêche & Évasion'} content={'L’horizon calme, les lignes tendues. Chaque sortie, une promesse d’émotion.'} />
-                                <PhotoCard img={photo2} title={''} content={''} />
-                                <PhotoCard img={photo3} title={''} content={''} />
-                                <PhotoCard img={photo4} title={''} content={''} />
+                                <PhotoCard img={photo2} title={'Pêche & Évasion'} content={'L’horizon calme, les lignes tendues. Chaque sortie, une promesse d’émotion.'} />
                                 <PhotoCard img={photo5} title={''} content={''} />
-                                <PhotoCard img={photo6} title={''} content={''} />
-                                <PhotoCard img={photo7} title={''} content={''} />
-                                <PhotoCard img={photo8} title={''} content={''} />
-                                <PhotoCard img={photo9} title={''} content={''} />
                                 <PhotoCard img={photo10} title={''} content={''} />
                                 <PhotoCard img={photo11} title={''} content={''} />
-                                <PhotoCard img={photo12} title={''} content={''} />
-                                <PhotoCard img={photo13} title={''} content={''} />
                                 <PhotoCard img={photo14} title={''} content={''} />
-                                <PhotoCard img={photo15} title={''} content={''} />
-                                <PhotoCard img={photo16} title={''} content={''} />
-                                <PhotoCard img={photo17} title={''} content={''} />
-                                <PhotoCard img={photo18} title={''} content={''} />
-                                <PhotoCard img={photo19} title={''} content={''} />
 
                             </div>
                             <Link className='mt-5' to='/galerie'>
