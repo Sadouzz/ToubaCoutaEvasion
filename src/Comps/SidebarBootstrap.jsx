@@ -15,6 +15,12 @@ function SidebarBootstrap({ setHeaderOnHomePosition, unSetHeaderOnHomePosition, 
                         </NavLink>  
                     </li>
                     <li className="nav-item mb-1">
+                        <NavLink to="/hebergement" className={({ isActive }) => `nav-link ${isActive ? "" : "collapsed"}`}>
+                            <i className="bi bi-grid"></i>
+                            <span>Hébergement</span>
+                        </NavLink>  
+                    </li>
+                    <li className="nav-item mb-1">
                         <NavLink to="/activites/peche" className={({ isActive }) => `nav-link ${isActive ? "" : "collapsed"}`} onClick={unSetHeaderOnHomePosition}>
                             <i className="bi bi-grid"></i>
                             <span>Activités</span>

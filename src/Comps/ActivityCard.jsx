@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function ActivityCard({ content, img, link='/' }) {
     return (
-        <div className="col-lg-4 col-md-6 mb-4">
+        <div className="col-lg-3 col-md-6 mb-4">
             <div className="card text-bg-dark rounded-0 border-0 activity-card shadow-lg overflow-hidden">
                 <Link className='stretched-link' to={link}></Link>
                 <img
@@ -18,11 +18,11 @@ function ActivityCard({ content, img, link='/' }) {
 
                 <div
                     className="card-img-overlay d-flex flex-column justify-content-center align-items-center"
-                    style={{ backgroundColor: "rgba(0,0,0,0.3)" }}
+                    style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
                 >
                     <img src={logo} alt="" style={{ maxWidth: '50px' }} />
                     <h2
-                        className="card-title text-white cormorant-garamond text-center"
+                        className="card-title text-white cormorant-garamond text-center fw-bold"
                         style={{ fontSize: "2rem" }}
                     >
                         {content}

@@ -8,9 +8,10 @@ import img4 from '../assets/img/Peche/peche3.jpg'
 import img5 from '../assets/img/Camping/camping1.jpg'
 import img6 from '../assets/img/Balades/balade11.jpg'
 import img8 from '../assets/img/Peche/peche7.jpg'
+import img9 from '../assets/img/huitre/huitre1.jpeg'
 import balade16 from '../assets/img/Balades/balade16.jpg'
 import videoFile from '../assets/vidHome.mp4'
-import loca from '../assets/loca.webp'
+import loca from '../assets/img/Map1.png'
 import Footer from '../Comps/Footer'
 import ThreeImagesBack from '../Comps/ThreeImagesBack'
 import ActivityCard from '../Comps/ActivityCard'
@@ -122,12 +123,18 @@ function Home({ onScrollChange }) {
                 </ThreeImagesWithHoverChanges>
 
                 {/*Seconde SECTION*/}
-                <div className='bg-white py-4'>
+                <div className='bg-white'>
                     <div className='container '>
-                        <div className='text-center d-flex align-items-center justify-content-center flex-column'>
-                            <h3 className='playfair-display'>ToubaCouta Evasion – Nature & Élégance au cœur du Delta</h3>
-                            <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
-                            <p className='poppins'>Véritable écrin de calme et d’authenticité, ToubaCouta Evasion vous invite à vivre une expérience unique, intime et immersive, au cœur du majestueux Delta du Saloum. Entre bolongs scintillants, forêts paisibles et rencontres inoubliables avec la nature, chaque instant ici est une reconnexion avec l’essentiel.</p>
+                        <div className='d-flex align-items-center justify-content-center'
+                        >
+                            <div className='section-titled d-flex flex-column align-items-center text-center'>
+
+
+                                <p className="poppins text-center">
+                                    ToubaCouta Evasion vous offre une expérience intime et authentique au cœur du Delta du Saloum, entre bolongs scintillants, forêts paisibles et instants de pure reconnexion avec la nature.
+                                </p>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -180,13 +187,21 @@ function Home({ onScrollChange }) {
                 </div>
 
                 {/* Section découvrez */}
-                <div className="bg-white py-4">
+                <div className="bg-white pt-5 pb-3">
                     <div className="container">
                         <div className='d-flex flex-column align-items-center justify-content-center text-center'>
 
                             <h3 className='playfair-display m-0'>Découvrez</h3>
                             <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
+                        </div>
+                    </div>
+                </div>
+
+                <div className="bg-white">
+                    <div className="container-fluid">
+                        <div className='d-flex flex-column align-items-center justify-content-center text-center'>
                             <div className='row'>
+                                <ActivityCard content={"Restaurant"} img={img9} link='/restaurant' />
                                 <ActivityCard content={"Pêche"} img={img4} link='/activites/peche' />
                                 <ActivityCard content={"Camping"} img={img5} link='/activites/camping' />
                                 <ActivityCard content={"Balades & Transports"} img={img6} link='/activites/balades-transports' />
@@ -200,11 +215,11 @@ function Home({ onScrollChange }) {
                     <div className='container'>
                         <div className="d-flex flex-column align-items-center justify-content-center text-center">
                             <div className='section-titled d-flex flex-column align-items-center justify-content-center' >
-                                <h3 className='playfair-display text-center'>Offres spéciales exclusives</h3>
+                                <h3 className='playfair-display text-center'>Offres d'Hébergement</h3>
                                 <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
                                 <p className='text-center'>
-                                    Nous proposons plusieurs forfaits luxueux, pour des séjours exclusifs ou en hôtel-boutique.
-                                    Choisissez votre forfait pour une expérience intime, chaleureuse et luxueuse.
+                                    Nous collaborons avec des hôtels-boutiques partenaires pour vous proposer plusieurs forfaits haut de gamme.
+                                    Choisissez celui qui vous correspond et profitez d’une expérience exclusive, intime et raffinée.
                                 </p>
                             </div>
 
@@ -215,8 +230,16 @@ function Home({ onScrollChange }) {
                         <Clouds />
                         <Clouds rotate={'180deg'} pos='bottom' />
                     </ThreeImagesBack>
+                    <div className="d-flex flex-column align-items-center justify-content-center text-center mt-5">
 
-
+                        <Link className='' to="/notre-histoire">
+                            <button className='btn btn-main text-light rounded-0 px-4 py-2'>
+                                <span className='cormorant-garamond fs-5'>
+                                    Consulter
+                                </span>
+                            </button>
+                        </Link>
+                    </div>
                     {/* <div className='container-fluid mt-4'>
                         <div className="text-center">
 
@@ -275,17 +298,14 @@ function Home({ onScrollChange }) {
                 </div>
 
                 {/*Award*/}
-                <div className='bg-white py-4'>
+                <div className='bg-white py-5'>
                     <div className='container'>
                         <div className="d-flex flex-column align-items-center justify-content-center text-center">
-                            <div className='section-titled d-flex flex-column align-items-center justify-content-center'>
-                                <h3 className='playfair-display text-center'>Partenaires & Affiliations</h3>
-                                <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
-                                <p className='text-center'>
-                                    Véritable havre de paix et d'harmonie, nous vous accueillons pour une expérience de luxe intime et personnalisée à Zanzibar,
-                                    sur la spectaculaire plage de sable blanc de Paje.
-                                </p>
-                            </div>
+                            <h3 className='playfair-display text-center m-0'>Partenaires & Affiliations</h3>
+                            <hr className='border-2 border-main opacity-100 ' style={{ width: "10%", maxWidth: "150px" }} />
+                            <p className='text-center'>
+
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -302,9 +322,9 @@ function Home({ onScrollChange }) {
                         <div className='row d-flex align-items-center'>
                             <div className='col-lg-6 col-12'>
                                 <img src={balade16} alt="" className='img-fluid img-hover'
-                                style={{
-                                    maxHeight: '500px'
-                                }} />
+                                    style={{
+                                        maxHeight: '500px'
+                                    }} />
                             </div>
                             <div className='col-lg-6 col-12'>
                                 <div className='d-flex flex-column align-items-center justify-content-center text-center'>
